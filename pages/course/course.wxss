@@ -1,0 +1,12 @@
+/* pages/course/course.wxss */
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20rpx;
+}
+
+.row .col {
+  width: 90rpx;
+
+}

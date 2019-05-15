@@ -1,0 +1,22 @@
+<!--pages/course/course.wxml-->
+<view wx:for="{{['a','b','c','d']}}">
+  {{item}}/{{index}}
+</view>
+<view wx:for="{{books}}">
+  {{item}}/{{index}}
+</view>
+
+<view wx:for="{{books}}" wx:for-index="idx" wx:for-item="itemName">
+  {{idx}}: {{itemName}}
+</view>
+
+<block wx:for="{{books}}">
+  <view>{{index}}</view>
+  <view>{{item}}</view>
+</block>
+
+<view class="row" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="row">
+  <view class="col" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="col" wx:if="{{ col < row}}">
+    {{col}}*{{row}}={{col*row}}
+  </view>
+</view>
