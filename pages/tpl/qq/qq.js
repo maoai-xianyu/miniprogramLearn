@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username:"学习盒子鱼"
+    username:"学习盒子鱼，我爱工作"
   },
 
   /**

@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/course/course",
     "pages/tpl/qq/qq",
+    "pages/event/event",
     "pages/tpl/wechat/wechat",
     "pages/weibo/weibo",
     "pages/logs/logs"
@@ -39,7 +40,7 @@
         "selectedIconPath": "images/tabbars/tab_weibo_selected.png"
       },
       {
-        "pagePath": "pages/tpl/wechat/wechat",
+        "pagePath": "pages/event/event",
         "text": "日志",
         "iconPath": "images/tabbars/tab_my.png",
         "selectedIconPath": "images/tabbars/tab_my_selected.png"

@@ -88,4 +88,33 @@ Page({
 
 ```
 
-## 20节 include
+## 20节 include 简单粗暴
+
+相当一把代码直接加进去，但是有些代码是不能加的。<template/> 和 <wxs/> 不能被加载进去。公共代码
+
+## 21节 事件的绑定
+
+```
+event.wxml
+
+<view bind:tap="onViewClick">请点击我</view>
+
+event.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+    },
+
+    /**
+     * view 被點擊的
+     */
+    onViewClick: function(event) {
+        console.log('hello');
+    },
+
+})
+```

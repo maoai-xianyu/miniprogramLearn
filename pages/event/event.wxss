@@ -1,0 +1,9 @@
+/* pages/event/event.wxss */
+
+.article-group {
+    font-size: 14px;
+    height: 40px;
+    padding: 10px;
+    line-height: 40px;
+    border-bottom: 1px solid #e4e4e4;
+}
