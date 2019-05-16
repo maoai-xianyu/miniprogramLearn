@@ -1,0 +1,4 @@
+<view>我是一个banner
+
+<text>{{username}}</text>
+</view>

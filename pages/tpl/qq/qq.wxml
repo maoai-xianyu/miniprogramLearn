@@ -1,4 +1,6 @@
 <!--pages/tpl/qq/qq.wxml-->
+
+<include src="banner.wxml"/>
 <import src="../../../templates/message/message.wxml"/>
 
 <template is = "message" data="{{content:'我们一起来写手哥歌曲吧！',friend:'周杰伦',time:'2018/06/07'}}"></template>
