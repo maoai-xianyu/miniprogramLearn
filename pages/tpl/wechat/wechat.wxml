@@ -1,4 +1,6 @@
 <!--pages/tpl/wechat/wechat.wxml-->
-<import src="../../../templates/message/message.wxml"/>
+<import src="../../../templates/message/message.wxml" />
 
-<template is = "message" data="{{content:'我们一起来打篮球吧！',friend:'蔡旭空'}}"></template>
+<!-- item   ...item 模板的key 和 js的数据对应，可以用...item 获取数据-->
+<!-- <template is="message" wx:for="{{messages}}" data="{{content:item.content,friend:item.friend}}"></template> -->
+<template is="message" wx:for="{{messages}}" data="{{...item}}"></template>

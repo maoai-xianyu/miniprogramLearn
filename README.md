@@ -55,3 +55,35 @@ qq.wxss
 @import "../../../templates/message/message.wxss";
 
 ```
+
+## 19节 模板数据的代替  item ...item
+
+```
+
+<import src="../../../templates/message/message.wxml" />
+
+<!-- item   ...item 模板的key 和 js的数据对应，可以用...item 获取数据-->
+<!-- <template is="message" wx:for="{{messages}}" data="{{content:item.content,friend:item.friend}}"></template> -->
+<template is="message" wx:for="{{messages}}" data="{{...item}}"></template>
+
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    messages: [
+      {
+        content: '今天我们一起去唱歌啊',
+        friend: '周结论'
+      },
+      {
+        content: '今天我们一起去打篮球',
+        friend: '蔡徐坤'
+      }
+    ]
+  }
+})
+
+```
