@@ -118,3 +118,80 @@ Page({
 
 })
 ```
+
+## 22节 参数传递
+
+* 参数传递,页面添加 data- 参数
+
+```
+event.wxml  data-id 用户参数传递，绑定参数 id   data-title 传递标题  data- 是固定配置
+
+<view wx:for="{{articles}}" class="article-group" bind:tap="onActivleClick" data-id="{{item.id}}">
+    {{item.title}}
+</view>
+
+```
+* js获取参数逻辑
+
+```
+event.js  获取参数
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+        articles: [{
+                'id': 1,
+                'title': '钢铁是怎样炼成的'
+            },
+            {
+                'id': 2,
+                'title': '平凡的世界'
+            }
+        ]
+
+    },
+
+    /**
+     * 文章被点击事件
+     */
+    onActivleClick: function(event) {
+        console.log(event);
+        // currentTarget 在控制台上可以看到，存放参数
+        var dataset = event.currentTarget.dataset;
+        console.log(dataset);
+        var id = dataset.id;
+        // 页面跳转， /pages/weibo/weibo 注意前面的斜杆
+        wx.navigateTo({ url: '/pages/weibo/weibo?id=' + id });
+    }
+
+})
+
+```
+
+* 页面接收
+
+```
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        console.log(options);
+        // 获取id
+        var id = options.id;
+        console.log('id = ' + id);
+    }
+})
+```

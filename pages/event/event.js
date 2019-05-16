@@ -30,6 +30,10 @@ Page({
      */
     onActivleClick: function(event) {
         console.log(event);
+        var dataset = event.currentTarget.dataset;
+        console.log(dataset);
+        var id = dataset.id;
+        wx.navigateTo({ url: '/pages/weibo/weibo?id=' + id });
     }
 
 })

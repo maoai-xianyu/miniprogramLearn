@@ -1,5 +1,5 @@
 <!-- pages/event/event.wxml -->
 <view bind:tap="onViewClick">请点击我</view>
-<view wx:for="{{articles}}" class="article-group" bind:tap="onActivleClick" data-id="{{item.id}}">
+<view wx:for="{{articles}}" class="article-group" bind:tap="onActivleClick" data-id="{{item.id}}" data-title="{{item.title}}">
     {{item.title}}
 </view>
