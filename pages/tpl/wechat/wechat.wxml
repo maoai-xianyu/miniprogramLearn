@@ -1,0 +1,4 @@
+<!--pages/tpl/wechat/wechat.wxml-->
+<import src="../../../templates/message/message.wxml"/>
+
+<template is = "message" data="{{content:'我们一起来打篮球吧！',friend:'蔡旭空'}}"></template>

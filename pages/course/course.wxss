@@ -3,10 +3,9 @@
 .row {
   display: flex;
   justify-content: flex-start;
-  font-size: 20rpx;
+  font-size: 10px;
 }
 
 .row .col {
-  width: 90rpx;
-
+  width: 40px;
 }

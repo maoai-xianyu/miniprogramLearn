@@ -1,0 +1,2 @@
+/* pages/tpl/wechat/wechat.wxss */
+@import "../../../templates/message/message.wxss";

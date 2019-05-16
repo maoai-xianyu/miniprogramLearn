@@ -1,0 +1,18 @@
+/* pages/tpl/qq/qq.wxss */
+
+.message-group{
+  height: 40px;
+  line-height: 40px;
+  padding: 10px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.message-group .content{
+  float: left;
+}
+
+.message-group .friend{
+   float: right;
+   font-size: 12px;
+   color: burlywood;
+}
