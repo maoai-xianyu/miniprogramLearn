@@ -1,4 +1,25 @@
 <!--pages/course/course.wxml-->
+
+<view wx:for="{{lines}}" wx:key="id">
+  <switch>{{item.name}}</switch>
+</view>
+
+<button bindtap="tapEvent">更新</button>
+
+
+<view wx:for="{{lineNums}}" wx:key="*this">
+  <switch>{{item}}</switch>
+</view>
+
+<button bindtap="tapEventNum">更新</button>
+
+
+<view class="row" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="row">
+  <view class="col" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="col" wx:if="{{ col < row}}">
+    {{col}}*{{row}}={{col*row}}
+  </view>
+</view>
+
 <view wx:for="{{['a','b','c','d']}}">
   {{item}}/{{index}}
 </view>
@@ -15,8 +36,3 @@
   <view>{{item}}</view>
 </block>
 
-<view class="row" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="row">
-  <view class="col" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="col" wx:if="{{ col < row}}">
-    {{col}}*{{row}}={{col*row}}
-  </view>
-</view>
