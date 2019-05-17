@@ -2,12 +2,13 @@
     "pages": [
         "pages/index/index",
         "pages/course/course",
-        "pages/css/css",
+        "pages/flexdemo/flexdemo",
         "pages/event/event",
         "pages/tpl/wechat/wechat",
         "pages/weibo/weibo",
         "pages/logs/logs",
-        "pages/tpl/qq/qq"
+        "pages/tpl/qq/qq",
+        "pages/css/css"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -33,8 +34,8 @@
                 "selectedIconPath": "images/tabbars/tab_course_selected.png"
             },
             {
-                "pagePath": "pages/css/css",
-                "text": "布局",
+                "pagePath": "pages/flexdemo/flexdemo",
+                "text": "布局flex",
                 "iconPath": "images/tabbars/tab_weibo.png",
                 "selectedIconPath": "images/tabbars/tab_weibo_selected.png"
             },

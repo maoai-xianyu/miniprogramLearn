@@ -436,3 +436,34 @@ event 对象
 ```
 @import "templates/news/news.wxss"
 ```
+
+## 28  flex布局：
+
+flex布局是继标准流布局、浮动布局、定位布局后的第四种布局方式。这种方式可以非常优雅的实现子元素居中或均匀分布，甚至可以随着窗口缩放自动适应。
+
+```
+
+<view class='outter'>
+  <view class='inner'>1</view>
+  <view class='inner'>2</view>
+</view>
+
+.outter {
+    /* flex */
+    display: flex;
+    /* justify-content  位置均分 */
+    justify-content: space-between;
+    width: 600rpx;
+    height: 400rpx;
+    background: pink;
+}
+
+.outter .inner {
+    background: gray;
+    width: 200rpx;
+    height: 200rpx;
+    border: 10rpx solid #e4e4e4;
+    /* 边框隐藏在盒子里面 */
+    box-sizing: border-box;
+}
+```

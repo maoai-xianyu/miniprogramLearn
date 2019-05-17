@@ -1,0 +1,5 @@
+<!--pages/flexdemo/flexdemo.wxml-->
+<view class='outter'>
+  <view class='inner'>1</view>
+  <view class='inner'>2</view>
+</view>
