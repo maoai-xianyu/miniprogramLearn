@@ -1,7 +1,7 @@
 <!-- pages/flexdemo/flexdemo.wxml -->
 <view class='outter'>
   <view class='inner inner1'>
-    <view>hello</view>
+    <view>hi</view>
   </view>
   <view class='inner inner2'>2</view>
   <view class='inner inner3'>3</view>

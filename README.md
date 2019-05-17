@@ -681,3 +681,63 @@ flex布局是继标准流布局、浮动布局、定位布局后的第四种布�
     flex-shrink: 1;
 }
 ```
+
+## 36 flex属性：
+
+flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以上三个属性同样取默认值，则 flex的默认值是0 1 auto
+
+1. auto：等价于1 1 auto。也就是允许增长，允许缩小，宽度为自动。
+2. none：等价于0 0 auto。也就是不允许增长，不允许缩小，宽度为自动。
+3. 非负数字：这个数字表示的是flex-grow的值，flex-shrink为1，表示允许缩小，flex-basis为0%。可以认为他就是把剩余的空间进行填充
+```
+.item {flex: 1;}
+  .item {
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 0%;
+  }
+```
+4. 0：对应的三个值分别为0 1 0%。
+```
+.item {flex: 0;}
+.item {
+   flex-grow: 0;
+   flex-shrink: 1;
+   flex-basis: 0%;
+}
+```
+5. 长度或者百分比：则这个值视为flex-basis的值，而flex-grow为1，flex-shrink为1。
+```
+.item-1 {flex: 0%;}
+.item-1 {
+   flex-grow: 1;
+   flex-shrink: 1;
+   flex-basis: 0%;
+}
+
+.item-2 {flex: 24px;}
+.item-2 {
+   flex-grow: 1;
+   flex-shrink: 1;
+   flex-basis: 24px;
+}
+```
+6. 两个非负数字：分别视为flex-grow和flex-shrink的值，flex-basis取0%
+```
+.item {flex: 2 3;}
+.item {
+   flex-grow: 2;
+   flex-shrink: 3;
+   flex-basis: 0%;
+}
+```
+
+7. 一个非负数字和一个长度或百分比：则分别视为 flex-grow 和 flex-basis 的值，flex-shrink 取 1
+```
+.item {flex: 11 32px;}
+.item {
+   flex-grow: 11;
+   flex-shrink: 1;
+   flex-basis: 32px;
+}
+```

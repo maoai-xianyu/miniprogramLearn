@@ -30,7 +30,8 @@
 
 .outter .inner1 {
     /* flex-basis: 120rpx; */
-    flex-shrink: 1;
+    /* flex-shrink: 1; */
+    flex: 0;
 }
 
 
