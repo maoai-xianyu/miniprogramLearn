@@ -5,7 +5,7 @@
     <view class="advertise" catch:tap="onAdvertiseClick">我是广告,catch事件，阻止事件冒泡</view>
 </view>
 <view>bind冒泡事件开始</view>
-<view class="outterview" bind:tap="onOutterViewClick">
-    <view class="innerview" bind:tap="onInnerViewClick"></view>
+<view class="outterview" bind:tap="onOutterViewClick" id="outer">
+    <view class="innerview" bind:tap="onInnerViewClick" id="inner"></view>
 </view>
 <view>bind冒泡事件结尾</view>

@@ -294,3 +294,11 @@ Page({
 })
 ```
 
+## 24 小程序事件 event 对象
+
+event 对象
+
+1. type 事件类型 string
+2. timeStamp 事件生成时的时间戳 integer
+3. target 触发事件的组件的一些属性值集合 object  事件发生的view
+4. currentTarget 当前组件的一些属性值集合 object  当前view

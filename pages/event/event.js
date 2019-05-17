@@ -48,6 +48,7 @@ Page({
      */
     onOutterViewClick: function(event) {
         console.log("外面的视图被点击了");
+        console.log(event);
     },
 
     /**
@@ -55,6 +56,7 @@ Page({
      */
     onInnerViewClick: function(event) {
         console.log("里面的视图被点击了");
+        console.log(event);
     }
 
 })
