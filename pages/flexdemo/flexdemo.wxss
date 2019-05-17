@@ -2,18 +2,21 @@
 
 .outter {
     display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
+    justify-content: start;
+    align-items: flex-start;
     width: 600rpx;
     height: 400rpx;
     background: pink;
-    flex-direction: column-reverse;
+    /* 改变主轴方向 */
+    /* flex-direction: column-reverse; */
+    /* 控制换行 */
+    flex-wrap: wrap;
 }
 
 .outter .inner {
     background: gray;
-    width: 180rpx;
-    height: 180rpx;
+    width: 100rpx;
+    height: 100rpx;
     border: 2rpx solid #e4e4e4;
     /* 边框隐藏在盒子里面 */
     box-sizing: border-box;
