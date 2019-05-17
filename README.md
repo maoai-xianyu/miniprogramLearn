@@ -643,3 +643,41 @@ flex布局是继标准流布局、浮动布局、定位布局后的第四种布�
     align-content: space-between;
 }
 ```
+
+## 35 元素（子容器）的相关属性
+
+* flex-basis：定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间。
+```
+ flex-basis: <length> | auto;
+ 默认值：auto，即项目本来的大小, 这时候 item 的宽高取决于 width 或 height 的值。
+```
+1. 当主轴为水平方向的时候，当设置了 flex-basis，项目的宽度设置值会失效，flex-basis 需要跟 flex-grow 和 flex-shrink 配合使用才能发挥效果。
+2. 当 flex-basis 值为 0 时，是把该项目视为零尺寸的，故即使声明该尺寸为 140px，也并没有什么用。
+3. 当 flex-basis 值为 auto 时，则跟根据尺寸的设定值(假如为 100px)，则这 100px 不会纳入剩余空间。
+
+```
+.outter .inner1 {
+    flex-basis: 120rpx;
+}
+```
+
+* flex-grow：设置元素是否需要扩大的比例。默认值为0，即如果存在剩余空间，也不放大
+
+```
+.outter .inner2 {
+    flex-grow: 1;
+}
+
+.outter .inner3 {
+    flex-grow: 1;
+}
+```
+
+* flex-shrink：定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+
+```
+.outter .inner1 {
+    /* flex-basis: 120rpx; */
+    flex-shrink: 1;
+}
+```

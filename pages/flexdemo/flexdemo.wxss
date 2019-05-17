@@ -10,7 +10,7 @@
     /* 改变主轴方向 */
     /* flex-direction: column-reverse; */
     /* 控制换行 */
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     /* 控制换行的排列方式 */
     align-content: space-between;
 }
@@ -27,3 +27,17 @@
 .outter .inner1 view {
     margin-top: 20rpx;
 }
+
+.outter .inner1 {
+    /* flex-basis: 120rpx; */
+    flex-shrink: 1;
+}
+
+
+/* .outter .inner2 {
+    flex-grow: 1;
+}
+
+.outter .inner3 {
+    flex-grow: 1;
+} */
