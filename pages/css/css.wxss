@@ -1,0 +1,48 @@
+/* pages/css/css.wxss */
+
+.news-group {
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 15px 10px;
+    box-sizing: border-box;
+}
+
+.news-group .info-group {
+    float: left;
+    width: 235px;
+}
+
+.info-group .title {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bolder;
+    color: red;
+}
+
+.info-group .more-group {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+.more-group .author {
+    float: left;
+}
+
+.more-group .time {
+    float: right;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.news-group .thumbnail-group {
+    height: 70px;
+    width: 100px;
+    float: right;
+}
+
+.thumbnail-group .thumbnail {
+    width: 100%;
+    height: 100%;
+}

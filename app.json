@@ -1,55 +1,54 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/course/course",
-    "pages/tpl/qq/qq",
-    "pages/event/event",
-    "pages/tpl/wechat/wechat",
-    "pages/weibo/weibo",
-    "pages/logs/logs"
-   
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ccc",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "default",
-    "backgroundColor": "pink",
-    "enablePullDownRefresh": false
-  },
-  "sitemapLocation": "sitemap.json",
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "images/tabbars/tab_home.png",
-        "selectedIconPath": "images/tabbars/tab_home_selected.png"
-      },
-      {
-        "pagePath": "pages/course/course",
-        "text": "课程",
-        "iconPath": "images/tabbars/tab_course.png",
-        "selectedIconPath": "images/tabbars/tab_course_selected.png"
-      },
-      {
-        "pagePath": "pages/tpl/qq/qq",
-        "text": "微博",
-        "iconPath": "images/tabbars/tab_weibo.png",
-        "selectedIconPath": "images/tabbars/tab_weibo_selected.png"
-      },
-      {
-        "pagePath": "pages/event/event",
-        "text": "日志",
-        "iconPath": "images/tabbars/tab_my.png",
-        "selectedIconPath": "images/tabbars/tab_my_selected.png"
-      }
+    "pages": [
+        "pages/index/index",
+        "pages/course/course",
+        "pages/css/css",
+        "pages/event/event",
+        "pages/tpl/wechat/wechat",
+        "pages/weibo/weibo",
+        "pages/logs/logs",
+        "pages/tpl/qq/qq"
     ],
-    "color": "#8a8a8a",
-    "selectedColor": "#1AAD16",
-    "backgroundColor": "#fff",
-    "borderStyle": "black"
-  },
-  "debug": false
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ccc",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "default",
+        "backgroundColor": "pink",
+        "enablePullDownRefresh": false
+    },
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/tabbars/tab_home.png",
+                "selectedIconPath": "images/tabbars/tab_home_selected.png"
+            },
+            {
+                "pagePath": "pages/course/course",
+                "text": "课程",
+                "iconPath": "images/tabbars/tab_course.png",
+                "selectedIconPath": "images/tabbars/tab_course_selected.png"
+            },
+            {
+                "pagePath": "pages/css/css",
+                "text": "布局",
+                "iconPath": "images/tabbars/tab_weibo.png",
+                "selectedIconPath": "images/tabbars/tab_weibo_selected.png"
+            },
+            {
+                "pagePath": "pages/event/event",
+                "text": "日志",
+                "iconPath": "images/tabbars/tab_my.png",
+                "selectedIconPath": "images/tabbars/tab_my_selected.png"
+            }
+        ],
+        "color": "#8a8a8a",
+        "selectedColor": "#1AAD16",
+        "backgroundColor": "#fff",
+        "borderStyle": "black"
+    },
+    "debug": false
 }

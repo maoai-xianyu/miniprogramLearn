@@ -302,3 +302,76 @@ event 对象
 2. timeStamp 事件生成时的时间戳 integer
 3. target 触发事件的组件的一些属性值集合 object  事件发生的view
 4. currentTarget 当前组件的一些属性值集合 object  当前view
+
+## 25 WXSS布局
+
+* wxml
+
+```
+
+<view class="news-group">
+    <view class="info-group">
+        <view class="title">外卖行业首先会员通，餐饮新零售升级</view>
+        <view class="more-group">
+            <text class="author">张楠楠</text>
+            <text class="time">10月24日</text>
+        </view>
+    </view>
+    <view class="thumbnail-group">
+        <image class="thumbnail" src="https://static-image.xfz.cn/1557999871_326.jpg-website.news.list" />
+    </view>
+</view>
+```
+
+* wxss
+
+```
+
+.news-group {
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 15px 10px;
+    box-sizing: border-box;
+}
+
+.news-group .info-group {
+    float: left;
+    width: 235px;
+}
+
+.info-group .title {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bolder;
+    color: red;
+}
+
+.info-group .more-group {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+.more-group .author {
+    float: left;
+}
+
+.more-group .time {
+    float: right;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.news-group .thumbnail-group {
+    height: 70px;
+    width: 100px;
+    float: right;
+}
+
+.thumbnail-group .thumbnail {
+    width: 100%;
+    height: 100%;
+}
+
+```

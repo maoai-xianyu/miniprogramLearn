@@ -1,0 +1,13 @@
+<!-- pages/css/css.wxml -->
+<view class="news-group">
+    <view class="info-group">
+        <view class="title">外卖行业首先会员通，餐饮新零售升级</view>
+        <view class="more-group">
+            <text class="author">张楠楠</text>
+            <text class="time">10月24日</text>
+        </view>
+    </view>
+    <view class="thumbnail-group">
+        <image class="thumbnail" src="https://static-image.xfz.cn/1557999871_326.jpg-website.news.list" />
+    </view>
+</view>
