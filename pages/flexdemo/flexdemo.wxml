@@ -1,6 +1,8 @@
 <!--pages/flexdemo/flexdemo.wxml-->
 <view class='outter'>
-  <view class='inner'>1</view>
-  <view class='inner'>2</view>
-  <view class='inner'>3</view>
+  <view class='inner inner1'>
+    <view>hello world</view>
+  </view>
+  <view class='inner inner2'>2</view>
+  <view class='inner inner3'>3</view>
 </view>

@@ -2,7 +2,8 @@
 
 .outter {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    align-items: baseline;
     width: 600rpx;
     height: 400rpx;
     background: pink;
@@ -10,9 +11,13 @@
 
 .outter .inner {
     background: gray;
-    width: 100rpx;
-    height: 100rpx;
-    border: 10rpx solid #e4e4e4;
+    width: 180rpx;
+    /* height: 100rpx; */
+    border: 2rpx solid #e4e4e4;
     /* 边框隐藏在盒子里面 */
     box-sizing: border-box;
+}
+
+.outter .inner1 view {
+    margin-top: 20rpx;
 }

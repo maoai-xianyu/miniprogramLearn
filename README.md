@@ -468,9 +468,97 @@ flex布局是继标准流布局、浮动布局、定位布局后的第四种布�
 }
 ```
 
-## 29 flex盒子
+## 29 flex盒子 基本概念：
 
 1. 弹性容器：包含着弹性项目的父元素。通过设置 display 属性的值为 flex 或 inline-flex 来定义弹性容器。
 2. 弹性项目(Flex item)：弹性容器的每个子元素都称为弹性项目。弹性容器直接包含的文本将被包覆成匿名弹性项目。也可以称为子容器。
 3. 轴(Axis)：每个弹性框布局包含两个轴。弹性项目沿其依次排列的那根轴称为主轴(main axis)。垂直于主轴的那根轴称为侧轴(cross axis)。
 4. 方向(Direction)：可以通过flex-direction来确定主轴和侧轴的方向。
+
+
+## 30 设置在主轴上的排列方式：
+
+* 默认情况下，主轴的方向是从左到右。在主轴方向上，可以通过justify-content属性来设置他们的排列方式。
+
+1. flex-start：项目靠近父盒子的左侧。默认采用的就是这种排列方式
+2. flex-end：项目靠近父盒子的右侧。
+3. center：所有项目会挨在一起在父盒子的中间位置。
+4. space-around：项目沿主轴均匀分布，位于首尾两端的子容器到父容器的距离是子容器间距的一半。
+5. space-between：项目沿主轴均匀分布，位于首尾两端的子容器与父容器紧紧挨着。
+6. space-evenly：项目在主轴上均匀分布，收尾两端的自容器到父容器的距离跟自容器间的间距是一样的。
+
+```
+.outter {
+    display: flex;
+    justify-content: space-evenly;
+    width: 600rpx;
+    height: 400rpx;
+    background: pink;
+}
+```
+
+## 31 设置在侧轴上的排列方式：
+
+* 默认情况下，侧轴的方向是从上到下。在侧轴方向上，可以通过align-items属性来设置他们的排列方式。
+1. flex-start：起始端对齐。默认就是这种对齐方式。
+2. flex-end：末尾段对齐。
+3. center：中间对齐。
+4. stretch：如果项目没有设置高度。那么子容器沿交叉轴方向的尺寸拉伸至与父容器一致。比如我们将.inner的高度属性去掉，
+
+```
+
+.outter {
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: stretch;
+    width: 600rpx;
+    height: 400rpx;
+    background: pink;
+}
+
+.outter .inner {
+    background: gray;
+    width: 180rpx;
+    /* height: 100rpx; */
+    border: 2rpx solid #e4e4e4;
+    /* 边框隐藏在盒子里面 */
+    box-sizing: border-box;
+}
+
+```
+5. baseline：基线对齐，这里的 baseline 默认是指首行文字，所有子容器向基线对齐，交叉轴起点到元素基线距离最大的子容器将会与交叉轴起始端相切以确定基线
+
+```
+
+
+<view class='outter'>
+  <view class='inner inner1'>
+    <view>hello world</view>
+  </view>
+  <view class='inner inner2'>2</view>
+  <view class='inner inner3'>3</view>
+</view>
+
+
+.outter {
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: baseline;
+    width: 600rpx;
+    height: 400rpx;
+    background: pink;
+}
+
+.outter .inner {
+    background: gray;
+    width: 180rpx;
+    /* height: 100rpx; */
+    border: 2rpx solid #e4e4e4;
+    /* 边框隐藏在盒子里面 */
+    box-sizing: border-box;
+}
+
+.outter .inner1 view {
+    margin-top: 20rpx;
+}
+```
