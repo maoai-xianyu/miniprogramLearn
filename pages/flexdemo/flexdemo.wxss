@@ -11,6 +11,8 @@
     /* flex-direction: column-reverse; */
     /* 控制换行 */
     flex-wrap: wrap;
+    /* 控制换行的排列方式 */
+    align-content: space-between;
 }
 
 .outter .inner {

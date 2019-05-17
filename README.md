@@ -620,3 +620,26 @@ flex布局是继标准流布局、浮动布局、定位布局后的第四种布�
 
 * 在排列中，如果有多行，那么这个属性是设置多行之间的排列方式。可以通过align-content属性来确定排列的方式。
 
+1. flex-start：从上往下排列
+2. flex-end：末尾段对齐
+3. center：中点对齐，
+4. space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+5. space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+6. stretch：默认方式，如果没有给元素设置高度，那么会占满整个交叉轴
+
+```
+.outter {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    width: 600rpx;
+    height: 400rpx;
+    background: pink;
+    /* 改变主轴方向 */
+    /* flex-direction: column-reverse; */
+    /* 控制换行 */
+    flex-wrap: wrap;
+    /* 控制换行的排列方式 */
+    align-content: space-between;
+}
+```
