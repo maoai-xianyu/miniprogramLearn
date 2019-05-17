@@ -2,4 +2,5 @@
 <view class='outter'>
   <view class='inner'>1</view>
   <view class='inner'>2</view>
+  <view class='inner'>3</view>
 </view>
