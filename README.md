@@ -375,3 +375,58 @@ event 对象
 }
 
 ```
+
+## 26 rpx尺寸单位  除了边框之外的尺寸用px 一般都用 rpx
+
+* rpx尺寸单位
+可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在iPhone6上，屏幕宽度为375px，共有750个物理像素，
+则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。
+
+```
+.news-group {
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 30rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.news-group .info-group {
+    float: left;
+    width: 470rpx;
+}
+
+.info-group .title {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bolder;
+    color: red;
+}
+
+.info-group .more-group {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.more-group .author {
+    float: left;
+}
+
+.more-group .time {
+    float: right;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.news-group .thumbnail-group {
+    height: 140rpx;
+    width: 200rpx;
+    float: right;
+}
+
+.thumbnail-group .thumbnail {
+    width: 100%;
+    height: 100%;
+}
+```
