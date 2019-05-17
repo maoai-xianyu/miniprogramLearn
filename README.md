@@ -430,3 +430,9 @@ event 对象
     height: 100%;
 }
 ```
+
+## 27 @import 导入样式
+
+```
+@import "templates/news/news.wxss"
+```
