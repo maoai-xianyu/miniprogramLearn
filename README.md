@@ -530,7 +530,6 @@ flex布局是继标准流布局、浮动布局、定位布局后的第四种布�
 
 ```
 
-
 <view class='outter'>
   <view class='inner inner1'>
     <view>hello world</view>
@@ -560,5 +559,35 @@ flex布局是继标准流布局、浮动布局、定位布局后的第四种布�
 
 .outter .inner1 view {
     margin-top: 20rpx;
+}
+```
+
+## 32 更换主轴和侧轴方向
+
+* 主轴默认的方向是从左到右，侧轴的方向默认是从上到下，当然也可以进行修改。可以通过flex-direction进行修改
+1. row：默认属性。从左到右。
+2. row-reverse：从右到左。
+```
+.outter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    width: 600rpx;
+    height: 400rpx;
+    background: pink;
+    flex-direction: row-reverse;
+}
+```
+3. column：从上到下。
+4. column-reverse：从下到上。
+```
+.outter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    width: 600rpx;
+    height: 400rpx;
+    background: pink;
+    flex-direction: column-reverse;
 }
 ```

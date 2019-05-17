@@ -2,17 +2,18 @@
 
 .outter {
     display: flex;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
     align-items: baseline;
     width: 600rpx;
     height: 400rpx;
     background: pink;
+    flex-direction: column-reverse;
 }
 
 .outter .inner {
     background: gray;
     width: 180rpx;
-    /* height: 100rpx; */
+    height: 180rpx;
     border: 2rpx solid #e4e4e4;
     /* 边框隐藏在盒子里面 */
     box-sizing: border-box;
