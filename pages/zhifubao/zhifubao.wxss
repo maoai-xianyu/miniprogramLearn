@@ -1,0 +1,41 @@
+/* pages/zhifubao/zhifubao.wxss */
+
+.blue-group {
+    background: #1e82d2;
+    padding: 20rpx;
+}
+
+.blue-group .top-group {
+    height: 58rpx;
+    width: 100%;
+    display: flex;
+}
+
+.top-group .search_group {
+    flex: 1;
+    display: flex;
+}
+
+.top-group .search_group .search_input {
+    flex: 1;
+    background: #1a71b7;
+    border-radius: 8rpx;
+    padding: 0 10rpx;
+    font-size: 24rpx;
+    color: white;
+}
+
+.top-group .search_group .placeholder-input {
+    color: white;
+}
+
+.blue-group .more-group {
+    flex-basis: 180rpx;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.more-group image {
+    width: 50rpx;
+    height: 50rpx;
+}

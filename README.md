@@ -741,3 +741,5 @@ flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以�
    flex-basis: 32px;
 }
 ```
+
+## 37 支付宝案例 头部
