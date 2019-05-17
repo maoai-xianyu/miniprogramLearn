@@ -34,6 +34,27 @@ Page({
         console.log(dataset);
         var id = dataset.id;
         wx.navigateTo({ url: '/pages/weibo/weibo?id=' + id });
+    },
+
+    /**
+     * 点击广告
+     */
+    onAdvertiseClick: function(event) {
+        console.log("广告点击了");
+    },
+
+    /**
+     * 外面的视图点击
+     */
+    onOutterViewClick: function(event) {
+        console.log("外面的视图被点击了");
+    },
+
+    /**
+     * 里面的视图点击
+     */
+    onInnerViewClick: function(event) {
+        console.log("里面的视图被点击了");
     }
 
 })

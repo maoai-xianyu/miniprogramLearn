@@ -195,3 +195,102 @@ Page({
     }
 })
 ```
+
+## 23节 事件的冒泡
+
+* 事件冒泡
+
+点击 onInnerViewClick 事件触发  onOutterViewClick 也同时会响应。
+
+1. bind 事件绑定不会阻止冒泡事件向上冒泡
+2. catch 事件绑定可以阻止冒泡事件向上冒泡
+
+```
+<view>bind冒泡事件开始</view>
+<view class="outterview" bind:tap="onOutterViewClick">
+    <view class="innerview" bind:tap="onInnerViewClick"></view>
+</view>
+<view>bind冒泡事件结尾</view>
+
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+        articles: [{
+                'id': 1,
+                'title': '钢铁是怎样炼成的'
+            },
+            {
+                'id': 2,
+                'title': '平凡的世界'
+            }
+        ]
+
+    },
+
+    /**
+     * 外面的视图点击
+     */
+    onOutterViewClick: function(event) {
+        console.log("外面的视图被点击了");
+    },
+
+    /**
+     * 里面的视图点击
+     */
+    onInnerViewClick: function(event) {
+        console.log("里面的视图被点击了");
+    }
+
+})
+```
+
+* 处理事件冒泡 catch
+
+```
+
+<view wx:for="{{articles}}" class="article-group" bind:tap="onActivleClick" data-id="{{item.id}}" data-title="{{item.title}}">
+    <view>{{item.title}}</view>
+    <view class="advertise" catch:tap="onAdvertiseClick">我是广告,catch事件，阻止事件冒泡</view>
+</view>
+
+
+
+Page({
+    data: {
+
+        articles: [{
+                'id': 1,
+                'title': '钢铁是怎样炼成的'
+            },
+            {
+                'id': 2,
+                'title': '平凡的世界'
+            }
+        ]
+    },
+
+    /**
+     * 文章被点击事件
+     */
+    onActivleClick: function(event) {
+        console.log(event);
+        var dataset = event.currentTarget.dataset;
+        console.log(dataset);
+        var id = dataset.id;
+        wx.navigateTo({ url: '/pages/weibo/weibo?id=' + id });
+    },
+
+    /**
+     * 点击广告
+     */
+    onAdvertiseClick: function(event) {
+        console.log("广告点击了");
+    },
+})
+```
+
