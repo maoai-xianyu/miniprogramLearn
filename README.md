@@ -1296,6 +1296,8 @@ wxs可以理解为javascript的一个阉割版本。使用wxs的好处如下：
 * wxs代码可以写在wxml文件中。也可以单独放在.wxs后缀的文件中。如果是写在wxml文件中，则必须要放在wxs标签中。
 
 ```
+wsxdemo.wxml
+
 <!-- wsx -->
 <wxs module="m">
     var getWeekDay = function(day){
