@@ -99,6 +99,6 @@ Page({
     },
     onGoToEventPageClick: function(event) {
         console.log("跳转")
-        wx.navigateTo({ url: '/pages/zhifubao/zhifubao' });
+        wx.navigateTo({ url: '/pages/param/param' });
     }
 })

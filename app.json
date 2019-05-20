@@ -2,15 +2,16 @@
     "pages": [
         "pages/index/index",
         "pages/course/course",
-        "pages/flexdemo/flexdemo",
+        "pages/weibolist/weibolist",
         "pages/event/event",
+        "pages/flexdemo/flexdemo",
+        "pages/weibo/weibo",
         "pages/zhifubao/zhifubao",
         "pages/tpl/wechat/wechat",
-        "pages/weibo/weibo",
+        "pages/param/param",
         "pages/logs/logs",
         "pages/tpl/qq/qq",
         "pages/css/css"
-
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -36,8 +37,8 @@
                 "selectedIconPath": "images/tabbars/tab_course_selected.png"
             },
             {
-                "pagePath": "pages/flexdemo/flexdemo",
-                "text": "布局flex",
+                "pagePath": "pages/weibolist/weibolist",
+                "text": "微博",
                 "iconPath": "images/tabbars/tab_weibo.png",
                 "selectedIconPath": "images/tabbars/tab_weibo_selected.png"
             },

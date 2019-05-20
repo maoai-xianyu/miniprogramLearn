@@ -1,2 +1,7 @@
 <!--pages/weibo/weibo.wxml-->
-<text>pages/weibo/weibo.wxml</text>
+<view>
+    <form bindsubmit="submitEvent">
+        <textarea placeholder="请输入内容..." name="content"></textarea>
+        <button form-type="submit">提交</button>
+    </form>
+</view>

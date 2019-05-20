@@ -1,0 +1,8 @@
+<!--pages/weibolist/weibolist.wxml-->
+<view>这是我的微博</view>
+<view wx:for="{{weibos}}" wx:for-index="idx">
+    {{idx}}/{{item}}
+</view>
+<button class="btn" type="primary" bindtap="onJumpSendClick">
+    发微博
+</button>

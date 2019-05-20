@@ -24,7 +24,7 @@
     </block>
     <block wx:else>宅在家里</block>
     <view>{{hello}}</view>
-    <button bind:tap="onGoToEventPageClick">跳转支付宝页面，测试onUnload()方法</button>
+    <button bind:tap="onGoToEventPageClick">跳转参数页面，测试onUnload()方法</button>
   </view>
 
 </view>

@@ -744,6 +744,8 @@ flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以�
 
 ## 37 支付宝案例 头部
 
+> folder  zhifubao
+
 ```
 .wxml
 <view class="zfbcontainer">
@@ -807,6 +809,8 @@ flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以�
 
 ## 38 支付宝案例 menu
 
+> folder  zhifubao
+
 ```
 <view class="zfbcontainer">
     <view class="blue-group">
@@ -858,6 +862,8 @@ flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以�
 ```
 
 ## 39 支付宝案例 类别
+
+> folder  zhifubao
 
 ```
 <view class="white-group">
@@ -936,6 +942,8 @@ flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以�
 
 ## 40 APP生命周期函数
 
+> folder  index -> index.js
+
 App() 必须在 app.js 中调用，必须调用且只能调用一次。不然会出现无法预期的后果。
 
 * onLaunch(Object object))
@@ -1011,7 +1019,7 @@ App({
 })
 ```
 
-* onPageNotFound() 
+* onPageNotFound()
 
 小程序要打开的页面不存在时触发
 
@@ -1038,6 +1046,8 @@ App({
 
 
 ## 41 Page 设置数据 Page对象
+
+> folder  index -> index.wxml index.js
 
 * Page对象作用：
 Page(Object)函数用来注册一个页面。接受一个 Object 类型参数，其指定页面的初始数据、生命周期回调、事件处理函数等。
@@ -1123,7 +1133,9 @@ Page({
 
 ## 42 Page 生命周期
 
-* onload(Object query) 
+> folder  index -> index.js
+
+* onload(Object query)
 页面加载时触发。一个页面只会调用一次，可以在 onLoad的参数中获取打开当前页面路径中的参数。一般建议在这个函数中做一些页面的数据初始化工作。
 
 * onShow()
@@ -1163,7 +1175,111 @@ Page({
     },
     onGoToEventPageClick: function(event) {
         console.log("跳转")
-        wx.navigateTo({ url: '/pages/zhifubao/zhifubao' });
+        wx.navigateTo({ url: '/pages/param/param' });
     }
 })
+```
+
+## 43 页面之前参数的传递 
+
+> folder  weibolist 微博列表  weibo 发微博
+
+* 页面路由
+
+开发者可以使用 getCurrentPages 函数获取当前页面栈。
+
+1. 初始化
+2. 打开新页面 wx.navigateTo 
+3. 页面重定向 wx.redirectTo 
+4. 页面返回 wx.navigateBack 
+5. Tab 切换 wx.switchTab 
+6. 重加载 wx.reLaunch 
+
+
+
+```
+weibolist.xml
+
+<view>这是我的微博</view>
+<view wx:for="{{weibos}}" wx:for-index="idx">
+    {{idx}}/{{item}}
+</view>
+<button class="btn" type="primary" bindtap="onJumpSendClick">
+    发微博
+</button>
+
+weibolist.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+        weibos: []
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        var curPages = getCurrentPages();
+        console.log(curPages)
+    },
+
+    onJumpSendClick: function() {
+        wx.navigateTo({ url: '/pages/weibo/weibo' });
+    }
+})
+
+
+weibo.wxml
+<view>
+    <form bindsubmit="submitEvent">
+        <textarea placeholder="请输入内容..." name="content"></textarea>
+        <button form-type="submit">提交</button>
+    </form>
+</view>
+
+weibo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        console.log(options);
+        // 获取id
+        var id = options.id;
+        console.log('id = ' + id);
+        var curPages = getCurrentPages();
+        console.log(curPages)
+    },
+
+    submitEvent: function(event) {
+        console.log(event);
+        var content = event.detail.value.content;
+        var curPages = getCurrentPages();
+        // 获取上一个页面
+        var page = curPages[0];
+        var weibos = page.data.weibos;
+        // 添加数据
+        weibos.push(content);
+        page.setData({
+            weibos: weibos
+        });
+        wx.navigateBack({});
+    }
+
+})
+
 ```

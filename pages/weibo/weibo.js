@@ -16,54 +16,23 @@ Page({
         // 获取id
         var id = options.id;
         console.log('id = ' + id);
+        var curPages = getCurrentPages();
+        console.log(curPages)
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function() {
-
+    submitEvent: function(event) {
+        console.log(event);
+        var content = event.detail.value.content;
+        var curPages = getCurrentPages();
+        // 获取上一个页面
+        var page = curPages[0];
+        var weibos = page.data.weibos;
+        // 添加数据
+        weibos.push(content);
+        page.setData({
+            weibos: weibos
+        });
+        wx.navigateBack({});
     }
+
 })
