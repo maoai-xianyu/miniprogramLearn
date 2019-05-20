@@ -856,3 +856,27 @@ flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以�
     color: white;
 }
 ```
+
+## 39 支付宝案例 类别
+
+```
+.white-group .menu-group {
+    width: 180rpx;
+    height: 100rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40rpx;
+}
+
+.white-group .menu-group image {
+    width: 54rpx;
+    height: 50rpx;
+}
+
+.white-group .menu-group text {
+    font-size: 32rpx;
+}
+```

@@ -29,4 +29,55 @@
             </view>
         </view>
     </view>
+    <view class="white-group">
+        <view class="menu-group">
+            <image src="images/5.png" />
+            <text>转账</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/6.png" />
+            <text>信用卡还款</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/7.png" />
+            <text>充值中心</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/8.png" />
+            <text>余额宝</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/9.png" />
+            <text>淘票票电影</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/10.png" />
+            <text>滴滴出行</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/11.png" />
+            <text>生活缴费</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/12.png" />
+            <text>芝麻信用</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/13.png" />
+            <text>火车票机票</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/14.png" />
+            <text>蚂蚁借呗</text>
+        </view>
+         <view class="menu-group">
+            <image src="images/15.png" />
+            <text>高德打车</text>
+        </view>
+        <view class="menu-group">
+            <image src="images/16.png" />
+            <text>更多</text>
+        </view>
+    </view>
+
 </view>
