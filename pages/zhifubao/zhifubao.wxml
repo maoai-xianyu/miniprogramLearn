@@ -10,5 +10,23 @@
                 <image src="images/02.png" />
             </view>
         </view>
+        <view class="main-menu-group">
+            <view class="main-menu">
+                <image src="images/1.png" />
+                <text>扫一扫</text>
+            </view>
+             <view class="main-menu">
+                <image src="images/2.png" />
+                <text>付钱</text>
+            </view>
+             <view class="main-menu">
+                <image src="images/3.png" />
+                <text>收钱</text>
+            </view>
+             <view class="main-menu">
+                <image src="images/4.png" />
+                <text>卡包</text>
+            </view>
+        </view>
     </view>
 </view>

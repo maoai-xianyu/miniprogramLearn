@@ -39,3 +39,26 @@
     width: 50rpx;
     height: 50rpx;
 }
+
+.blue-group .main-menu-group {
+    margin-top: 30rpx;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-menu-group .main-menu {
+    width: 100rpx;
+    height: 120rpx;
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+
+.main-menu-group .main-menu image {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.main-menu-group .main-menu text {
+    font-size: 32rpx;
+    color: white;
+}

@@ -743,3 +743,116 @@ flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以�
 ```
 
 ## 37 支付宝案例 头部
+
+```
+.wxml
+<view class="zfbcontainer">
+    <view class="blue-group">
+ <view class="top-group">
+            <view class="search_group">
+                <input class="search_input" placeholder-class="placeholder-input" placeholder="蚂蚁花呗"/>
+            </view>
+            <view class="more-group">
+                <image src="images/01.png" />
+                <image src="images/02.png" />
+            </view>
+        </view>
+           </view>
+</view>
+```
+
+```
+.wxss
+
+.blue-group {
+    background: #1e82d2;
+    padding: 20rpx;
+}
+
+.blue-group .top-group {
+    height: 58rpx;
+    width: 100%;
+    display: flex;
+}
+
+.top-group .search_group {
+    flex: 1;
+    display: flex;
+}
+
+.top-group .search_group .search_input {
+    flex: 1;
+    background: #1a71b7;
+    border-radius: 8rpx;
+    padding: 0 10rpx;
+    font-size: 24rpx;
+    color: white;
+}
+
+.top-group .search_group .placeholder-input {
+    color: white;
+}
+
+.blue-group .more-group {
+    flex-basis: 180rpx;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.more-group image {
+    width: 50rpx;
+    height: 50rpx;
+}
+```
+
+## 38 支付宝案例 menu
+
+```
+<view class="zfbcontainer">
+    <view class="blue-group">
+<view class="main-menu-group">
+            <view class="main-menu">
+                <image src="images/1.png" />
+                <text>扫一扫</text>
+            </view>
+             <view class="main-menu">
+                <image src="images/2.png" />
+                <text>付钱</text>
+            </view>
+             <view class="main-menu">
+                <image src="images/3.png" />
+                <text>收钱</text>
+            </view>
+             <view class="main-menu">
+                <image src="images/4.png" />
+                <text>卡包</text>
+            </view>
+        </view>
+           </view>
+</view>
+```
+
+```
+.blue-group .main-menu-group {
+    margin-top: 30rpx;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-menu-group .main-menu {
+    width: 100rpx;
+    height: 120rpx;
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+
+.main-menu-group .main-menu image {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.main-menu-group .main-menu text {
+    font-size: 32rpx;
+    color: white;
+}
+```
