@@ -1120,3 +1120,50 @@ Page({
   }
 })
 ```
+
+## 42 Page 生命周期
+
+* onload(Object query) 
+页面加载时触发。一个页面只会调用一次，可以在 onLoad的参数中获取打开当前页面路径中的参数。一般建议在这个函数中做一些页面的数据初始化工作。
+
+* onShow()
+页面显示/切入前台时触发。比如新推入了一个新的页面，那么原来的页面就处于后台，这时候如果把新页面又移除掉，那么下面的页面就会调用onShow方法。
+
+* onReady()
+页面初次渲染完成时触发。一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互了。对界面内容进行设置的 API 如wx.setNavigationBarTitleText，比较合适在这个里面执行。
+
+* onHide()
+页面隐藏/切入后台时触发。如navigateTo或底部tab切换到其他页面，小程序切入后台等。
+
+* onUnload()
+页面卸载时触发。如redirectTo或navigateBack到其他页面时
+
+```
+
+<button bind:tap="onGoToEventPageClick">跳转支付宝页面，测试onUnload()方法</button>
+
+Page({
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        console.log("=====>onLoad()");
+    },
+    onShow: function() {
+        console.log("=====>onShow()");
+    },
+    onReady: function() {
+        console.log("=====>onReady()");
+    },
+    onHide: function() {
+        console.log("=====>onHide()");
+    },
+    onUnload: function() {
+        console.log("=====>页面卸载");
+    },
+    onGoToEventPageClick: function(event) {
+        console.log("跳转")
+        wx.navigateTo({ url: '/pages/zhifubao/zhifubao' });
+    }
+})
+```

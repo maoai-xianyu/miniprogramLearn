@@ -59,7 +59,7 @@ Page({
                 }
             })
         }
-        console.log("=====onLoad()");
+        console.log("=====>onLoad()");
         var person = this.data.person;
         person.username = "知了课堂";
         this.setData({
@@ -83,5 +83,22 @@ Page({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
         })
+    },
+
+    onShow: function() {
+        console.log("=====>onShow()");
+    },
+    onReady: function() {
+        console.log("=====>onReady()");
+    },
+    onHide: function() {
+        console.log("=====>onHide()");
+    },
+    onUnload: function() {
+        console.log("=====>页面卸载");
+    },
+    onGoToEventPageClick: function(event) {
+        console.log("跳转")
+        wx.navigateTo({ url: '/pages/zhifubao/zhifubao' });
     }
 })

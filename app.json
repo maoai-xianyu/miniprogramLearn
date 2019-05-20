@@ -1,10 +1,10 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/zhifubao/zhifubao",
         "pages/course/course",
         "pages/flexdemo/flexdemo",
         "pages/event/event",
+        "pages/zhifubao/zhifubao",
         "pages/tpl/wechat/wechat",
         "pages/weibo/weibo",
         "pages/logs/logs",
