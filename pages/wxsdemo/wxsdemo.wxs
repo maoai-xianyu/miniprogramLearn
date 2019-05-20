@@ -1,32 +1,44 @@
+var tools = require("tools.wxs");
 var getWeekDay = function (day) {
-    var weekday = "";
-    switch (day) {
-        case 1:
-            weekday = "星期一";
-            break;
-        case 2:
-            weekday = "星期二";
-            break;
-        case 3:
-            weekday = "星期三";
-            break;
-        case 4:
-            weekday = "星期四";
-            break;
-        case 5:
-            weekday = "星期5五";
-            break;
-        case 6:
-            weekday = "星期六";
-            break;
-        case 7:
-            weekday = "星期日";
-            break;
-        default:
-            weekday = "时间错误有问题";
-            break;
+
+    // 换导入方式 start 
+    // var weekday = "";
+    // switch (day) {
+    //     case 1:
+    //         weekday = "星期一";
+    //         break;
+    //     case 2:
+    //         weekday = "星期二";
+    //         break;
+    //     case 3:
+    //         weekday = "星期三"; 
+    //         break;
+    //     case 4:
+    //         weekday = "星期四";
+    //         break;
+    //     case 5:
+    //         weekday = "星期5五";
+    //         break;
+    //     case 6:
+    //         weekday = "星期六";
+    //         break;
+    //     case 7:
+    //         weekday = "星期日";
+    //         break;
+    //     default:
+    //         weekday = "时间错误有问题";
+    //         break;
+    // }
+    // return weekday;
+    // 换导入方式 end
+    var weekdays = tools.weekdays;
+    if (day < 1 || day > 7) {
+        return "时间错误有问题";
+    } else {
+        return weekdays[day - 1];
     }
-    return weekday;
+
+
 }
 // 导出外部
 module.exports.getWeekDay = getWeekDay

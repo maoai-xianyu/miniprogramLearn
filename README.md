@@ -1379,5 +1379,39 @@ var getWeekDay = function (day) {
 module.exports.getWeekDay = getWeekDay
 ```
 
+## require函数 
+* 如果在一个wxs文件中，想引用另外一个wxs文件，那么可以使用require函数引用
 
+```
+tools.wxs
+
+var weekdays= [
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期日"
+]
+module.exports.weekdays = weekdays
+
+```
+
+在另外一个wxs文件中就可以进行引用了。示例代码如下：
+```
+wsxdemo.wxs
+
+var tools = require("tools.wxs");
+var getWeekDay = function (day) {
+    var weekdays = tools.weekdays;
+    if (day < 1 || day > 7) {
+        return "时间错误有问题";
+    } else {
+        return weekdays[day - 1];
+    }
+}
+// 导出外部
+module.exports.getWeekDay = getWeekDay
+```
 
