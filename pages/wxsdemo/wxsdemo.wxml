@@ -1,6 +1,6 @@
 <!-- pages/wxsdemo/wxsdemo.wxml -->
 <!-- wsx -->
-<wxs module="m">
+<!-- <wxs module="m">
     var getWeekDay = function(day){
         var weekday = "";
         switch (day) {
@@ -34,5 +34,10 @@
     module.exports.getWeekDay = getWeekDay
 </wxs>
 <view>wxs获取{{m.getWeekDay(day)}}</view>
+ -->
+<!-- 外部引用 -->
+<wxs src="wxsdemo.wxs" module="m"/>
+<view>wxs获取{{m.getWeekDay(day)}}</view>
+
 <!-- js 代码获取 -->
 <view>js后台代码获取  day =>  {{day}} weekday=> {{weekday}}</view>

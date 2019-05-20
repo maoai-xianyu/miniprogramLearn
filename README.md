@@ -1293,6 +1293,8 @@ wxs可以理解为javascript的一个阉割版本。使用wxs的好处如下：
 在iOS上，在wxs中代码执行效率是在js中执行的2-20倍。
 可以把更多的逻辑在wxml文件中完成。
 
+* wxs代码可以写在wxml文件中。也可以单独放在.wxs后缀的文件中。如果是写在wxml文件中，则必须要放在wxs标签中。
+
 ```
 <!-- wsx -->
 <wxs module="m">
@@ -1330,3 +1332,52 @@ wxs可以理解为javascript的一个阉割版本。使用wxs的好处如下：
 </wxs>
 <view>wxs获取{{m.getWeekDay(day)}}</view>
 ```
+
+## 45 外部引用wxs
+
+* wxs代码可以写在wxml文件中。也可以单独放在.wxs后缀的文件中。如果是写在wxml文件中，则必须要放在wxs标签中，如果是单独放在.wxs后缀文件中，就不需要放在wxs标签中了。
+* 并且必须要给wxs一个module属性，用来标记这个wxs的名称。
+* 以后想使用的时候，就直接在wxml代码中使用wxs来引用wxs文件
+```
+<!-- 外部引用 -->
+<wxs src="wxsdemo.wxs" module="m"/>
+<view>wxs获取{{m.getWeekDay(day)}}</view>
+
+wsxdemo.wxs
+
+var getWeekDay = function (day) {
+    var weekday = "";
+    switch (day) {
+        case 1:
+            weekday = "星期一";
+            break;
+        case 2:
+            weekday = "星期二";
+            break;
+        case 3:
+            weekday = "星期三";
+            break;
+        case 4:
+            weekday = "星期四";
+            break;
+        case 5:
+            weekday = "星期5五";
+            break;
+        case 6:
+            weekday = "星期六";
+            break;
+        case 7:
+            weekday = "星期日";
+            break;
+        default:
+            weekday = "时间错误有问题";
+            break;
+    }
+    return weekday;
+}
+// 导出外部
+module.exports.getWeekDay = getWeekDay
+```
+
+
+
