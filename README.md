@@ -933,3 +933,43 @@ flex属性是flex-grow flex-shrink flex-basis三个属性的简写。假设以�
     font-size: 32rpx;
 }
 ```
+
+## 40 APP生命周期函数
+
+App() 必须在 app.js 中调用，必须调用且只能调用一次。不然会出现无法预期的后果。
+
+* onLaunch(Object object))
+
+1. 小程序被加载完毕的时候调用。这个方法一般用来做一些初始化的事情。
+2. 参数
+    1. path | String | 打开小程序的路
+    2. query | Object | 打开小程序的query 
+    3. scene | Number | 打开小程序的场景值
+    4. referrerInfo | Object | 当场景为由从另一个小程序或公众号或App打开时，返回此字段
+    5. shareTicket | String | shareTicket，详见 获取更多转发信息
+    6. referrerInfo.appId | String | 来源小程序或公众号或App的 appId
+    7. referrerInfo.extraData | Object | 来源小程序传过来的数据
+
+```
+onLaunch: function(options) {
+        console.log("==========onLaunch");
+        console.log(options);
+}
+```
+
+* onShow(Object object)
+
+1. 小程序启动，或从后台进入前台显示时调用。eg:一些实时动态更改的数据，用户每次进来都要从服务器更新，那么我们就可以在这个里面做
+
+* onHide()
+
+1. 小程序被切换到后台（包括微信自身被切换到后台或者小程序暂时被切换到后台时）eg: 可以在这个方法中做一些数据的保存。
+
+* onError(String error)
+
+1. 小程序发生脚本错误，或者 api 调用失败时触发。在小程序发生错误的时候，会把错误信息发送到这个函数中，所以可以在这个函数中做一些错误收集。
+2. 参数  error
+
+* onPageNotFound() 
+
+小程序要打开的页面不存在时触发
