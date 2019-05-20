@@ -951,25 +951,172 @@ App() 必须在 app.js 中调用，必须调用且只能调用一次。不然会
     7. referrerInfo.extraData | Object | 来源小程序传过来的数据
 
 ```
-onLaunch: function(options) {
-        console.log("==========onLaunch");
-        console.log(options);
-}
+App({
+    onLaunch: function(options) {
+            console.log("==========onLaunch");
+            console.log(options);
+    }
+})
+
 ```
 
 * onShow(Object object)
 
 1. 小程序启动，或从后台进入前台显示时调用。eg:一些实时动态更改的数据，用户每次进来都要从服务器更新，那么我们就可以在这个里面做
 
+```
+App({
+    onLaunch: function(options) {
+            console.log("==========onLaunch");
+            console.log(options);
+    },
+    onShow: function(options) {
+        console.log("=========onShow");
+        console.log(options)
+    }
+})
+```
 * onHide()
 
 1. 小程序被切换到后台（包括微信自身被切换到后台或者小程序暂时被切换到后台时）eg: 可以在这个方法中做一些数据的保存。
 
+```
+App({
+    onLaunch: function(options) {
+            console.log("==========onLaunch");
+            console.log(options);
+    },
+    onHide: function() {
+        console.log("=========onHide");
+        console.log(username);
+    }
+})
+```
 * onError(String error)
 
 1. 小程序发生脚本错误，或者 api 调用失败时触发。在小程序发生错误的时候，会把错误信息发送到这个函数中，所以可以在这个函数中做一些错误收集。
 2. 参数  error
 
+```
+
+App({
+    onLaunch: function(options) {
+            console.log("==========onLaunch");
+            console.log(options);
+    },
+    onError: function(msg) {
+        console.log("=========onError");
+        console.log(msg);
+    }
+})
+```
+
 * onPageNotFound() 
 
 小程序要打开的页面不存在时触发
+
+```
+
+App({
+    onLaunch: function(options) {
+            console.log("==========onLaunch");
+            console.log(options);
+    },
+    onPageNotFound: function(res) {
+        wx.redirectTo({
+            url: 'pages/logs/logs',
+        })
+    }
+})
+```
+
+* getApp()：
+获取当前的app对象。一般在其他的page页面中调用。有以下两个注意点：
+
+1. 不要在定义于 App() 内的函数中调用 getApp() ，使用 this 就可以拿到 app 实例。
+2. 通过 getApp() 获取实例之后，不要私自调用生命周期函数。
+
+
+## 41 Page 设置数据 Page对象
+
+* Page对象作用：
+Page(Object)函数用来注册一个页面。接受一个 Object 类型参数，其指定页面的初始数据、生命周期回调、事件处理函数等。
+
+* 数据渲染：
+需要放在模板中进行渲染的数据，需要放在Page对象的data属性中
+```
+Page({
+  data: {
+    person: {
+      username: "知了课堂",
+      age: 18
+    }
+  }
+})
+
+<view>
+{{person.name}}
+</view>
+```
+
+> 如果以后想要修改data中的值，应该使用setData方法。setData函数用于将数据从逻辑层发送到视图层（异步），同时改变对应的 this.data 的值（同步）
+
+1. 直接修改 this.data 而不调用 this.setData 是无法改变页面的状态的，还会造成数据不一致。
+2. 放到data中的值，只能使用可以JSON序列化的：字符串，数字，布尔值，对象，数组。否则将不会渲染。
+3. 其中key可以以数据路径的形式给出，支持改变数组中的某一项或对象的某个属性，如 array[2].message，a.b.c.d，并且不需要在 this.data中预先定义。
+
+```
+
+wxml
+<view>{{ person.username }} {{ person.age+10 }} {{ books[3] }} </view>
+
+<view>{{hello}}</view>
+<view>{{hello()}}</view>
+
+js
+
+function hello() {
+    return "你好";
+}
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+        username:"学习盒子鱼，我爱工作"
+        person: {
+            'username': '盒子鱼',
+            'age': 18
+        },
+        hello: hello(),
+        books: [
+            '三国演义',
+            '水浒传',
+            '西游记'
+        ]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+        console.log("=====onLoad()");
+        var person = this.data.person;
+        person.username = "知了课堂";
+        this.setData({
+            person: person
+        })
+
+        // 使用路径的方式
+        this.setData({
+            "person.age": 50
+        })
+
+        this.setData({
+            "books[3]": "金瓶梅"
+        })
+  }
+})
+```

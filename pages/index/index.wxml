@@ -10,7 +10,7 @@
   <view class="usermotto">
     <text>{{motto}}</text>
     <view>{{ username }}</view>
-    <view>{{ person.username }} {{ person.age+10 }} {{ books[0] }} </view>
+    <view>{{ person.username }} {{ person.age+10 }} {{ books[3] }} </view>
     <view wx:if="{{ person.age > 18}}">18以下是青少年的年龄</view>
     <view wx:elif="{{ person.age == 18 }}">18岁上大学的年龄</view>
     <view wx:else>开启以后的人生</view>
@@ -23,5 +23,7 @@
       <view>逛街</view>
     </block>
     <block wx:else>宅在家里</block>
+    <view>{{hello}}</view>
   </view>
+
 </view>

@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/zhifubao/zhifubao",
         "pages/index/index",
+        "pages/zhifubao/zhifubao",
         "pages/course/course",
         "pages/flexdemo/flexdemo",
         "pages/event/event",
@@ -24,8 +24,8 @@
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "list": [{
-                "pagePath": "pages/zhifubao/zhifubao",
-                "text": "支付宝",
+                "pagePath": "pages/index/index",
+                "text": "首页",
                 "iconPath": "images/tabbars/tab_home.png",
                 "selectedIconPath": "images/tabbars/tab_home_selected.png"
             },
