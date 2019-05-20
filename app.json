@@ -1,6 +1,6 @@
 {
     "pages": [
-        "pages/index/index",
+        "pages/wxsdemo/wxsdemo",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
@@ -8,8 +8,9 @@
         "pages/weibo/weibo",
         "pages/zhifubao/zhifubao",
         "pages/tpl/wechat/wechat",
-        "pages/param/param",
         "pages/logs/logs",
+        "pages/index/index",
+        "pages/param/param",
         "pages/tpl/qq/qq",
         "pages/css/css"
     ],
@@ -25,8 +26,8 @@
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "list": [{
-                "pagePath": "pages/index/index",
-                "text": "首页",
+                "pagePath": "pages/wxsdemo/wxsdemo",
+                "text": "wxs测试",
                 "iconPath": "images/tabbars/tab_home.png",
                 "selectedIconPath": "images/tabbars/tab_home_selected.png"
             },

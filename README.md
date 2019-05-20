@@ -1283,3 +1283,50 @@ Page({
 })
 
 ```
+
+## 44 WXS
+
+在传统的网页开发中，HTML中是可以写JavaScript代码的，而在小程序中，是不允许在WXML文件中写JavaScript的，但是有些时候，我们需要在wxml中实现一些逻辑的处理。
+
+wxs可以理解为javascript的一个阉割版本。使用wxs的好处如下：
+
+在iOS上，在wxs中代码执行效率是在js中执行的2-20倍。
+可以把更多的逻辑在wxml文件中完成。
+
+```
+<!-- wsx -->
+<wxs module="m">
+    var getWeekDay = function(day){
+        var weekday = "";
+        switch (day) {
+            case 1:
+                weekday = "星期一";
+                break;
+            case 2:
+                weekday = "星期二";
+                break;
+            case 3:
+                weekday = "星期三";
+                break;
+            case 4:
+                weekday = "星期四";
+                break;
+            case 5:
+                weekday = "星期5五";
+                break;
+            case 6:
+                weekday = "星期六";
+                break;
+            case 7:
+                weekday = "星期日";
+                break;
+            default:
+                weekday = "时间错误有问题";
+                break;
+        }
+        return weekday;
+    }
+    module.exports.getWeekDay = getWeekDay
+</wxs>
+<view>wxs获取{{m.getWeekDay(day)}}</view>
+```
