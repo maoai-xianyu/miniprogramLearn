@@ -1,4 +1,4 @@
-var weekdays= [
+var weekdays = [
     "星期一",
     "星期二",
     "星期三",
@@ -7,4 +7,4 @@ var weekdays= [
     "星期六",
     "星期日"
 ]
-module.exports.weekdays = weekdays
+module.exports.weekdays = weekdays;

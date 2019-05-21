@@ -1295,6 +1295,12 @@ wxs可以理解为javascript的一个阉割版本。使用wxs的好处如下：
 
 * wxs代码可以写在wxml文件中。也可以单独放在.wxs后缀的文件中。如果是写在wxml文件中，则必须要放在wxs标签中。
 
+* 每一个 .wxs 文件和 <wxs> 标签都是一个单独的模块。
+
+* 每个模块都有自己独立的作用域。即在一个模块里面定义的变量与函数，默认为私有的，对其他模块不可见。
+
+* 一个模块要想对外暴露其内部的私有变量与函数，只能通过 module.exports 实现。
+
 ```
 wsxdemo.wxml
 
@@ -1381,7 +1387,7 @@ var getWeekDay = function (day) {
 module.exports.getWeekDay = getWeekDay
 ```
 
-## require函数 
+## 46 require函数 
 * 如果在一个wxs文件中，想引用另外一个wxs文件，那么可以使用require函数引用
 
 ```
@@ -1417,3 +1423,66 @@ var getWeekDay = function (day) {
 module.exports.getWeekDay = getWeekDay
 ```
 
+## 47 WXS变量
+
+* var username 只能在当前文件中使用
+
+```
+
+tools.wxs
+var weekdays = [
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期日"
+]
+var username = "盒子鱼";
+module.exports.weekdays = weekdays;
+
+wxsdemo.wxs
+var tools = require("tools.wxs");
+console.log(username);
+// expection
+
+```
+
+* username 可以在全局文件中使用
+
+```
+tools.wxs
+var weekdays = [
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期日"
+]
+username = "盒子鱼";
+module.exports.weekdays = weekdays;
+
+wxsdemo.wxs
+var tools = require("tools.wxs");
+console.log(username);
+
+```
+
+* username 作用域
+
+```
+wxsdemo.wxs
+
+console.log(username);
+// undefine
+var username = "盒子鱼";
+
+相当于
+
+var username;
+console.log(username);
+var username = "盒子鱼";
+```

@@ -1,5 +1,5 @@
 var tools = require("tools.wxs");
-var getWeekDay = function (day) {
+var getWeekDay = function(day) {
 
     // 换导入方式 start 
     // var weekday = "";
@@ -37,8 +37,10 @@ var getWeekDay = function (day) {
     } else {
         return weekdays[day - 1];
     }
-
-
 }
+
+var username = "盒子鱼";
+console.log(username);
+
 // 导出外部
-module.exports.getWeekDay = getWeekDay
+module.exports.getWeekDay = getWeekDay;
