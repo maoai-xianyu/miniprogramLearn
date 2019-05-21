@@ -5,8 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        day: 1
-
+        day: 4
     },
 
     /**
@@ -41,9 +40,13 @@ Page({
                 weekday = "时间错误有问题";
                 break;
         }
-        this.setData({
-            weekday: weekday
-        });
 
+        // 时间案例
+        var timeDate = new Date(2019, 0, 21, 10, 0, 0);
+        console.log("获取时间 " + timeDate.getTime());
+        this.setData({
+            weekday: weekday,
+            timeDate: timeDate.getTime(),
+        });
     }
 })

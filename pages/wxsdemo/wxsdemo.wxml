@@ -37,7 +37,10 @@
  -->
 <!-- 外部引用 -->
 <wxs src="wxsdemo.wxs" module="m"/>
+<wxs src="tools.wxs" module="tools"/>
 <view>wxs获取{{m.getWeekDay(day)}}</view>
-
 <!-- js 代码获取 -->
-<view>js后台代码获取  day =>  {{day}} weekday=> {{weekday}}</view>
+<view>js代码获取day => {{day}} weekday=> {{weekday}}</view>
+
+<view>{{tools.timeFormat(timeDate)}}</view>
+<view>{{timeDate}}</view>

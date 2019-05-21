@@ -1286,6 +1286,8 @@ Page({
 
 ## 44 WXS
 
+> folder  wxsdemo
+
 在传统的网页开发中，HTML中是可以写JavaScript代码的，而在小程序中，是不允许在WXML文件中写JavaScript的，但是有些时候，我们需要在wxml中实现一些逻辑的处理。
 
 wxs可以理解为javascript的一个阉割版本。使用wxs的好处如下：
@@ -1343,6 +1345,8 @@ wsxdemo.wxml
 
 ## 45 外部引用wxs
 
+> folder  wxsdemo
+
 * wxs代码可以写在wxml文件中。也可以单独放在.wxs后缀的文件中。如果是写在wxml文件中，则必须要放在wxs标签中，如果是单独放在.wxs后缀文件中，就不需要放在wxs标签中了。
 * 并且必须要给wxs一个module属性，用来标记这个wxs的名称。
 * 以后想使用的时候，就直接在wxml代码中使用wxs来引用wxs文件
@@ -1388,6 +1392,9 @@ module.exports.getWeekDay = getWeekDay
 ```
 
 ## 46 require函数 
+
+> folder  wxsdemo
+
 * 如果在一个wxs文件中，想引用另外一个wxs文件，那么可以使用require函数引用
 
 ```
@@ -1424,6 +1431,8 @@ module.exports.getWeekDay = getWeekDay
 ```
 
 ## 47 WXS变量
+
+> folder  wxsdemo
 
 * var username 只能在当前文件中使用
 
@@ -1489,9 +1498,98 @@ var username = "盒子鱼";
 
 ## 48 WXS注释
 
+> folder  wxsdemo
+
 ```
 // hello();
 
 /* hello(); */
+
+```
+
+## 49 WXS 运算符 50 WXS 时间格式化案例
+
+> folder  wxsdemo
+
+* 注意时间对象..
+
+```
+
+wxsdemo.js
+
+Page({
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        day: 4
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        // 时间案例
+        var timeDate = new Date(2019, 0, 21, 10, 0, 0);
+        console.log("获取时间 " + timeDate.getTime());
+        this.setData({
+            timeDate: timeDate.getTime(),
+        });
+    }
+})
+
+wxsdemo.wxml
+
+<!-- 外部引用 -->
+<wxs src="tools.wxs" module="tools"/>
+<view>{{tools.timeFormat(timeDate)}}</view>
+<view>{{timeDate}}</view>
+
+tools:wxs
+
+var weekdays = [
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期日"
+]
+
+var timeFormat = function(time) {
+    console.log("wxs 获取前端页面的时间" + time);
+    var date = getDate(time);
+    console.log("页面时间为" + date);
+    var date_seconds = date.getTime() / 1000;
+    var now = getDate();
+    var now_seconds = now.getTime() / 1000;
+    var timestamp = now_seconds - date_seconds;
+    var timeStr = "";
+    if (timestamp < 60) {
+        timeStr = "刚刚";
+    } else if (timestamp >= 60 && timestamp < 60 * 60) {
+        var minutes = parseInt(timestamp / 60);
+        timeStr = minutes + "分钟前";
+    } else if (timestamp >= 60 * 60 && timestamp < 60 * 60 * 24) {
+        var hours = parseInt(timestamp / 60 / 60);
+        timeStr = hours + "小时前";
+    } else if (timestamp >= 60 * 60 * 24 && timestamp < 60 * 60 * 24 * 30) {
+        var days = parseInt(timestamp / 60 / 60 / 24);
+        timeStr = days + "天前";
+    } else {
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var day = date.getDay();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        timeStr = year + "/" + (month+1) + "/" + day + "/" + hour + ":" + minute;
+    }
+    return timeStr;
+}
+module.exports = {
+    timeFormat: timeFormat,
+    weekdays: weekdays
+};
 
 ```
