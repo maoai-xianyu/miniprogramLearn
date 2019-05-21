@@ -1688,3 +1688,38 @@ scrollViewDemo.wxss
     background-color: blue;
 }
 ```
+
+## 53 scroll-view 设置竖向滚动
+
+> flooder scrollViewDemo
+
+1. 给scroll-view添加scroll-y="true"属性。
+2. 给scroll-view设置高度。
+
+
+```
+
+scrollViewDemo.wxml
+
+<scroll-view class="scroll-view-y" scroll-y="{{true}}">
+    <view class="scroll-item-y bg_red"></view>
+    <view class="scroll-item-y bg_yellow"></view>
+    <view class="scroll-item-y bg_grey"></view>
+    <view class="scroll-item-y bg_blue"></view>
+</scroll-view>
+
+
+scrollViewDemo.wxss
+
+.scroll-view-y {
+    width: 100%;
+    height: 200rpx;
+    background: grey;
+    margin-top: 100rpx;
+}
+
+.scroll-view-y .scroll-item-y {
+    width: 100%;
+    height: 200rpx;
+}
+```

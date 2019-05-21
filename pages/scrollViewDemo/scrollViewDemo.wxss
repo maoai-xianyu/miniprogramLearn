@@ -28,3 +28,15 @@
 .bg_blue {
     background-color: blue;
 }
+
+.scroll-view-y {
+    width: 100%;
+    height: 200rpx;
+    background: grey;
+    margin-top: 100rpx;
+}
+
+.scroll-view-y .scroll-item-y {
+    width: 100%;
+    height: 200rpx;
+}

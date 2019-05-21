@@ -5,3 +5,13 @@
     <view class="scroll-item bg_grey"></view>
     <view class="scroll-item bg_blue"></view>
 </scroll-view>
+
+
+<scroll-view class="scroll-view-y" scroll-y="{{true}}">
+    <view class="scroll-item-y bg_red"></view>
+    <view class="scroll-item-y bg_yellow"></view>
+    <view class="scroll-item-y bg_grey"></view>
+    <view class="scroll-item-y bg_blue"></view>
+</scroll-view>
+
+
