@@ -1632,3 +1632,59 @@ viewdemo.wxss
     background: gray;
 }
 ```
+
+## 51 scroll-view
+
+> flooder scrollViewDemo
+
+有时候我们的一些视图在手机指定的宽度和高度不够存放。那么可以放在scroll-view中。
+
+scroll-view:
+1. 给scroll-view添加scroll-x="true"属性。
+2. 给scroll-view添加white-space:nowrap;样式。
+3. 给scroll-view中的子元素设置为display:inline-block;
+
+```
+
+scrollViewDemo.wxml
+
+<scroll-view class="scroll-view" scroll-x="{{true}}">
+    <view class="scroll-item bg_red"></view>
+    <view class="scroll-item bg_yellow"></view>
+    <view class="scroll-item bg_grey"></view>
+    <view class="scroll-item bg_blue"></view>
+</scroll-view>
+
+
+
+scrollViewDemo.wxss
+
+.scroll-view {
+    width: 100%;
+    height: 400rpx;
+    background: green;
+    white-space: nowrap;
+}
+
+.scroll-view .scroll-item {
+    width: 200rpx;
+    height: 200rpx;
+    display: inline-block;
+}
+
+.bg_red {
+    background-color: red;
+}
+
+.bg_yellow {
+    background-color: yellow;
+}
+
+.bg_grey {
+    background-color: grey;
+}
+
+.bg_blue {
+    background-color: blue;
+}
+```

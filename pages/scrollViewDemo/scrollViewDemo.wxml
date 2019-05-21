@@ -1,0 +1,7 @@
+<!--pages/scrollViewDemo/scrollViewDemo.wxml-->
+<scroll-view class="scroll-view" scroll-x="{{true}}">
+    <view class="scroll-item bg_red"></view>
+    <view class="scroll-item bg_yellow"></view>
+    <view class="scroll-item bg_grey"></view>
+    <view class="scroll-item bg_blue"></view>
+</scroll-view>

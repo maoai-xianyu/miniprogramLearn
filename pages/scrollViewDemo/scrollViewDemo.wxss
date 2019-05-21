@@ -1,0 +1,30 @@
+/* pages/scrollViewDemo/scrollViewDemo.wxss */
+
+.scroll-view {
+    width: 100%;
+    height: 400rpx;
+    background: green;
+    white-space: nowrap;
+}
+
+.scroll-view .scroll-item {
+    width: 200rpx;
+    height: 200rpx;
+    display: inline-block;
+}
+
+.bg_red {
+    background-color: red;
+}
+
+.bg_yellow {
+    background-color: yellow;
+}
+
+.bg_grey {
+    background-color: grey;
+}
+
+.bg_blue {
+    background-color: blue;
+}
