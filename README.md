@@ -1486,3 +1486,12 @@ var username;
 console.log(username);
 var username = "盒子鱼";
 ```
+
+## 48 WXS注释
+
+```
+// hello();
+
+/* hello(); */
+
+```

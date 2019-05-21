@@ -40,7 +40,14 @@ var getWeekDay = function(day) {
 }
 
 var username = "盒子鱼";
-console.log(username);
+
+function hello() {
+    var username;
+    console.log(username);
+    username = "梦然";
+}
+
+/* hello(); */
 
 // 导出外部
 module.exports.getWeekDay = getWeekDay;
