@@ -1,11 +1,12 @@
 {
     "pages": [
-        "pages/wxsdemo/wxsdemo",
+        "pages/viewdemo/viewdemo",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
         "pages/flexdemo/flexdemo",
         "pages/weibo/weibo",
+        "pages/wxsdemo/wxsdemo",
         "pages/zhifubao/zhifubao",
         "pages/tpl/wechat/wechat",
         "pages/logs/logs",
@@ -26,8 +27,8 @@
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "list": [{
-                "pagePath": "pages/wxsdemo/wxsdemo",
-                "text": "wxs测试",
+                "pagePath": "pages/viewdemo/viewdemo",
+                "text": "view组件",
                 "iconPath": "images/tabbars/tab_home.png",
                 "selectedIconPath": "images/tabbars/tab_home_selected.png"
             },

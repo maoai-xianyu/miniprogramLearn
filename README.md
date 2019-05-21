@@ -1593,3 +1593,42 @@ module.exports = {
 };
 
 ```
+
+## view 组件
+
+> folder  viewdemo
+
+* hover-stay-time
+* hover-start-time
+* hover-class
+* hover-stop-propagation="{{true}}"
+
+```
+viewdemo.xml
+
+<view class="outer" hover-stay-time="0" hover-start-time="0" hover-class="outer-hover">
+    <view class="inner" hover-class="inner-hover" hover-stop-propagation="{{true}}"></view>
+</view>
+
+viewdemo.wxss
+
+.outer {
+    width: 400rpx;
+    height: 400rpx;
+    background: red;
+}
+
+.outer-hover {
+    background: blue;
+}
+
+.inner {
+    width: 200rpx;
+    height: 200rpx;
+    background: green;
+}
+
+.inner-hover {
+    background: gray;
+}
+```
