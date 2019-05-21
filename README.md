@@ -1598,10 +1598,10 @@ module.exports = {
 
 > folder  viewdemo
 
-* hover-stay-time
-* hover-start-time
-* hover-class
-* hover-stop-propagation="{{true}}"
+* hover-stay-time  手指松开后点击态保留时间，单位毫秒
+* hover-start-time 按住后多久出现点击态，单位毫秒
+* hover-class  指定按下去的样式类。当 hover-class="none" 时，没有点击态效果
+* hover-stop-propagation="{{true}}" 指定是否阻止本节点的祖先节点出现点击态  boolean
 
 ```
 viewdemo.xml
