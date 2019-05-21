@@ -1,17 +1,13 @@
-<!--pages/scrollViewDemo/scrollViewDemo.wxml-->
+<!-- pages/scrollViewDemo/scrollViewDemo.wxml -->
 <scroll-view class="scroll-view" scroll-x="{{true}}">
     <view class="scroll-item bg_red"></view>
     <view class="scroll-item bg_yellow"></view>
     <view class="scroll-item bg_grey"></view>
     <view class="scroll-item bg_blue"></view>
 </scroll-view>
-
-
-<scroll-view class="scroll-view-y" scroll-y="{{true}}">
+<scroll-view class="scroll-view-y" scroll-y="{{true}}" scroll-with-animation="{{true}}" scroll-into-view="grey" bindscroll="scroolEvent" enable-back-to-top="{{true}}" bindscrolltoupper="toUpTopEvent" upper-threshold="100">
     <view class="scroll-item-y bg_red"></view>
     <view class="scroll-item-y bg_yellow"></view>
-    <view class="scroll-item-y bg_grey"></view>
+    <view id="grey" class="scroll-item-y bg_grey"></view>
     <view class="scroll-item-y bg_blue"></view>
 </scroll-view>
-
-

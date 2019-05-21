@@ -1635,7 +1635,7 @@ viewdemo.wxss
 
 ## 51 scroll-view
 
-> flooder scrollViewDemo
+> folder scrollViewDemo
 
 有时候我们的一些视图在手机指定的宽度和高度不够存放。那么可以放在scroll-view中。
 
@@ -1691,7 +1691,7 @@ scrollViewDemo.wxss
 
 ## 53 scroll-view 设置竖向滚动
 
-> flooder scrollViewDemo
+> folder scrollViewDemo
 
 1. 给scroll-view添加scroll-y="true"属性。
 2. 给scroll-view设置高度。
@@ -1722,4 +1722,52 @@ scrollViewDemo.wxss
     width: 100%;
     height: 200rpx;
 }
+```
+
+## 54 scroll-view 滚动事件
+
+> folder scrollViewDemo
+
+
+* upper-threshold  和 bindscrolltoupper 对应
+* lower-threshold  和 bindscrolltolower 对应
+* bindscroll 滚动事件
+
+```
+scrollViewDemo.wxml
+
+<scroll-view class="scroll-view-y" scroll-y="{{true}}" scroll-with-animation="{{true}}" scroll-into-view="grey" bindscroll="scroolEvent" enable-back-to-top="{{true}}" bindscrolltoupper="toUpTopEvent" upper-threshold="100">
+    <view class="scroll-item-y bg_red"></view>
+    <view class="scroll-item-y bg_yellow"></view>
+    <view id="grey" class="scroll-item-y bg_grey"></view>
+    <view class="scroll-item-y bg_blue"></view>
+</scroll-view>
+
+scrollViewDemo.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+    },
+    toUpTopEvent: function(event) {
+        console.log("距离顶部的距离，触发");
+        console.log(event);
+    },
+    scroolEvent: function(event) {
+        console.log("滚动的时候，触发");
+        console.log(event);
+    }
+})
+
 ```
