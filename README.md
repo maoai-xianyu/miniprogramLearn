@@ -2046,15 +2046,28 @@ movable-view组件，正如他的名字一样，是可以移动的容器，但�
 * direction  movable-view的移动方向，属性值有all、vertical、horizontal、none
 * inertia movable-view是否带有惯性
 * out-of-bounds 超过可移动区域后，movable-view是否还可以移动  和 wxss 中的 overflow: hidden; 可以控制
+* damping 阻尼系数，用于控制x或y改变时的动画和过界回弹的动画，值越大移动越快
+* friction 摩擦系数，用于控制惯性滑动的动画，值越大摩擦力越大，滑动越快停止；必须大于0，否则会被设置成默认值
+* scale  是否支持双指缩放，默认缩放手势生效区域是在movable-view内
+* bindchange 拖动过程中触发的事件，event.detail = {x, y, source}
+* bindscale 缩放过程中触发的事件，event.detail = {x, y, scale}，x和y字段在2.1.0之后支持
+* htouchmove 新 初次手指触摸后移动为横向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch
+* vtouchmove 新 初次手指触摸后移动为纵向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch
 
 ```
+xml
 
-movable-area class="area-group">
-    <movable-view class="view-group" direction="all" inertia="{{true}}" out-of-bounds="{{true}}" y="100rpx" x="40rpx">
+<movable-area class="area-group">
+    <movable-view  catch:htouchmove="moveHEvent" bindscale="scaleEvent" bindchange="moveEvent" class="view-group"scale="{{true}}"  friction="20" damping="20" direction="all" inertia="{{true}}" out-of-bounds="{{true}}" y="{{y}}rpx" x="{{x}}rpx">
         移动
     </movable-view>
 </movable-area>
 
+<button class="btn" type="primary" bindtap="moveBoxClick">
+    点击移动
+</button>
+
+wxss
 
 .area-group {
     width: 100%;
@@ -2069,4 +2082,45 @@ movable-area class="area-group">
     height: 200rpx;
     background: red;
 }
+
+js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {},
+
+    moveBoxClick: function(event) {
+        var y = 100;
+        var x = 50;
+        this.setData({
+            x: x,
+            y: y
+        })
+    },
+
+    moveEvent: function(event) {
+        console.log("拖动");
+        console.log(event);
+    },
+    bindscale: function(event) {
+        console.log("缩放");
+        console.log(event);
+    },
+    moveHEvent: function(event) {
+        console.log("横向移动");
+        console.log(event);
+    }
+})
+
+
 ```

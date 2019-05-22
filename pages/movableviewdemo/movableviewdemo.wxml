@@ -1,6 +1,10 @@
 <!-- pages/movableviewdemo/movableviewdemo.wxml -->
 <movable-area class="area-group">
-    <movable-view class="view-group" direction="all" inertia="{{true}}" out-of-bounds="{{true}}" y="100rpx" x="40rpx">
+    <movable-view  catch:htouchmove="moveHEvent" bindscale="scaleEvent" bindchange="moveEvent" class="view-group"scale="{{true}}"  friction="20" damping="20" direction="all" inertia="{{true}}" out-of-bounds="{{true}}" y="{{y}}rpx" x="{{x}}rpx">
         移动
     </movable-view>
 </movable-area>
+
+<button class="btn" type="primary" bindtap="moveBoxClick">
+    点击移动
+</button>
