@@ -1,0 +1,6 @@
+<!-- pages/movableviewdemo/movableviewdemo.wxml -->
+<movable-area class="area-group">
+    <movable-view class="view-group" direction="all" inertia="{{true}}" out-of-bounds="{{true}}" y="100rpx" x="40rpx">
+        移动
+    </movable-view>
+</movable-area>

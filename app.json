@@ -1,11 +1,12 @@
 {
     "pages": [
-        "pages/swiperdemo/swiperdemo",
+        "pages/movableviewdemo/movableviewdemo",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
         "pages/flexdemo/flexdemo",
         "pages/weibo/weibo",
+        "pages/swiperdemo/swiperdemo",
         "pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo",
         "pages/scrollViewDemo/scrollViewDemo",
         "pages/viewdemo/viewdemo",
@@ -30,8 +31,8 @@
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "list": [{
-                "pagePath": "pages/swiperdemo/swiperdemo",
-                "text": "swiper轮播",
+                "pagePath": "pages/movableviewdemo/movableviewdemo",
+                "text": "移动组件",
                 "iconPath": "images/tabbars/tab_home.png",
                 "selectedIconPath": "images/tabbars/tab_home_selected.png"
             },

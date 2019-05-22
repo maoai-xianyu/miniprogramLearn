@@ -1,0 +1,15 @@
+/* pages/movableviewdemo/movableviewdemo.wxss */
+
+.area-group {
+    width: 100%;
+    height: 800rpx;
+    background: blue;
+    /* 移动盒子超出边框，隐藏 */
+    overflow: hidden;
+}
+
+.area-group .view-group {
+    width: 200rpx;
+    height: 200rpx;
+    background: red;
+}

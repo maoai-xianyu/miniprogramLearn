@@ -2034,3 +2034,39 @@ Page({
     }
 })
 ```
+
+## 59 movable-view组件
+
+> folder movableviewdemo
+
+正常情况下，一个组件设置了后，如果不通过js或者css动画，那么是很难实现移动的。如果我们有些组件设置完成后想要能够移动。那么我们就可以借助movable-view组件来实现。
+
+movable-view组件，正如他的名字一样，是可以移动的容器，但是这个容器必须要放在movable-area中才能移动。因此实际上是这两个组件配合使用才能实现移动的效果的
+
+* direction  movable-view的移动方向，属性值有all、vertical、horizontal、none
+* inertia movable-view是否带有惯性
+* out-of-bounds 超过可移动区域后，movable-view是否还可以移动  和 wxss 中的 overflow: hidden; 可以控制
+
+```
+
+movable-area class="area-group">
+    <movable-view class="view-group" direction="all" inertia="{{true}}" out-of-bounds="{{true}}" y="100rpx" x="40rpx">
+        移动
+    </movable-view>
+</movable-area>
+
+
+.area-group {
+    width: 100%;
+    height: 800rpx;
+    background: blue;
+    /* 移动盒子超出边框，隐藏 */
+    overflow: hidden;
+}
+
+.area-group .view-group {
+    width: 200rpx;
+    height: 200rpx;
+    background: red;
+}
+```
