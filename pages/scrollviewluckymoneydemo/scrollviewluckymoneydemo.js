@@ -23,7 +23,7 @@ Page({
 
         var width = windowWidth;
         var height = 100;
-        var radius = (height / 2) + (width * width / 8 / height);
+        var radius = (height / 2) + (Math.pow(width, 2) / 8 / height);
         console.log("radius = " + radius);
         // 用于移动圆
         var left = -(radius - width / 2);
