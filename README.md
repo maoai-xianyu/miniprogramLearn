@@ -1772,7 +1772,7 @@ Page({
 
 ```
 
-## 55 微信红包动画案例
+## 55 56 微信红包动画案例
 
 > folder scrollviewluckymoneydemo
 
@@ -1900,6 +1900,57 @@ Page({
                 left: left
             })
         }
+    }
+})
+```
+
+## 57 swiper组件
+
+> folder swiperdemo
+
+在app里面，轮播图（banner）是非常常见的，因此小程序专门针对这个出了一个组件就是swiper。
+
+```
+
+swiperdemo.wxml
+
+<swiper class="swiper-group" style="width:{{windowWidth*2}}rpx;height:{{windowHeight*2}}rpx;" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}" duration="{{500}}" indicator-active-color="#ff0000" indicator-color="#ffffff">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+        <swiper-item>
+            <image class="swiper-image" src="{{item}}" />
+        </swiper-item>
+    </block>
+</swiper>
+
+swiperdemo.wxss
+
+
+swiperdemo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+        imgUrls: [
+            "https://static-image.xfz.cn/1539770831_872.jpg",
+            "https://static-image.xfz.cn/1541147489_121.jpeg"
+        ]
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        var systemInfo = wx.getSystemInfoSync();
+        console.log(systemInfo);
+        var windowHeight = systemInfo.windowHeight;
+        var windowWidth = systemInfo.windowWidth;
+        this.setData({
+            windowHeight: windowHeight / 4,
+            windowWidth: windowWidth
+        })
     }
 })
 ```

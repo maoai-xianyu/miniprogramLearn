@@ -1,0 +1,8 @@
+<!--pages/swiperdemo/swiperdemo.wxml-->
+<swiper class="swiper-group" style="width:{{windowWidth*2}}rpx;height:{{windowHeight*2}}rpx;" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}" duration="{{500}}" indicator-active-color="#ff0000" indicator-color="#ffffff">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+        <swiper-item>
+            <image class="swiper-image" src="{{item}}" />
+        </swiper-item>
+    </block>
+</swiper>

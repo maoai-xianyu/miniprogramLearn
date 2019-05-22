@@ -1,0 +1,8 @@
+/* pages/swiperdemo/swiperdemo.wxss */
+
+.swiper-group {}
+
+.swiper-group .swiper-image {
+    width: 100%;
+    height: 100%;
+}
