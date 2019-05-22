@@ -1924,6 +1924,12 @@ swiperdemo.wxml
 
 swiperdemo.wxss
 
+.swiper-group {}
+
+.swiper-group .swiper-image {
+    width: 100%;
+    height: 100%;
+}
 
 swiperdemo.js
 Page({
@@ -1951,6 +1957,80 @@ Page({
             windowHeight: windowHeight / 4,
             windowWidth: windowWidth
         })
+    }
+})
+```
+
+## 58 swiper组件-常用属性
+
+> folder swiperdemo
+
+* indicator-dots 是否显示面板指示点
+* indicator-color 指示点颜色
+* indicator-active-color 当前选中的指示点颜色
+* circular  循环
+* interval 自动切换时间间隔
+* duration  滑动动画时长
+* current 当前所在滑块的 index
+* autoplay 是否自动切换
+* previous-margin 前边距，可用于露出前一项的一小部分
+* next-margin 后边距，可用于露出后一项的一小部分
+* bindchange current 改变时会触发 change 事件，event.detail = {current, source}
+* bindanimationfinish 动画结束时会触发 animationfinish 事件，event.detail 同上
+* bindtransition swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy}
+
+```
+
+swiperdemo.wxml
+<swiper class="swiper-group" bindtransition="transitionEvnet" current="2" bindanimationfinish="animationFinishEvnet" bindchange="changeEvnet" previous-margin="10px" next-margin="10px" circular="{{true}}" style="width:{{windowWidth*2}}rpx;height:{{windowHeight*2}}rpx;" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}" indicator-active-color="#ff0000" indicator-color="#ffffff">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+        <swiper-item>
+            <image class="swiper-image" src="{{item}}" />
+        </swiper-item>
+    </block>
+</swiper>
+
+
+swiperdemo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+        imgUrls: [
+            "https://static-image.xfz.cn/1539770831_872.jpg",
+            "https://static-image.xfz.cn/1541147489_121.jpeg",
+            "http://motor.lifan.com/d/file/banner/2017-03-17/c0f168a1bab0a233074c37efc128c911.jpg",
+            "http://motor.lifan.com/d/file/banner/2019-04-16/291e57a24ce2afe9be49cdd4abb27c59.jpg"
+        ]
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        var systemInfo = wx.getSystemInfoSync();
+        console.log(systemInfo);
+        var windowHeight = systemInfo.windowHeight;
+        var windowWidth = systemInfo.windowWidth;
+        this.setData({
+            windowHeight: windowHeight / 4,
+            windowWidth: windowWidth
+        })
+    },
+    changeEvnet: function(event) {
+        console.log("current 改变时会触发 change 事件");
+        console.log(event);
+    },
+    animationFinishEvnet: function(event) {
+        console.log("动画结束时会触发 animationfinish 事件");
+        console.log(event);
+    },
+    transitionEvnet: function(event) {
+        console.log("swiper-item 的位置发生改变时会触发 transition 事件");
+        console.log(event);
     }
 })
 ```
