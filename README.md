@@ -1773,3 +1773,133 @@ Page({
 ```
 
 ## 55 微信红包动画案例
+
+> folder scrollviewluckymoneydemo
+
+感觉适配还是有些问题...需要再次研究
+
+```
+scrollviewluckymoneydemo.wxml
+
+<scroll-view scroll-y="{{true}}" class="scroll-group" style="height:{{windowHeight*2}}rpx;" bindscroll="scrollEvent">
+    <view class="circle-outer">
+        <view class="circle-inner">
+            <view class="circle" style="width:{{radius*2*2}}rpx;height:{{radius*2*2}}rpx;left:{{left*2}}rpx;"></view>
+        </view>
+        <view class="user-group">
+            <image class="avatar-img" src="../../images/maoai_xianyu.png" />
+            <view class="user-name">codingtk</view>
+        </view>
+    </view>
+    <view class="placeholder"></view>
+</scroll-view>
+
+scrollviewluckymoneydemo.wxss
+
+.scroll-group {
+    width: 100%;
+    height: 200rpx;
+    background: grey;
+}
+
+.scroll-group .circle-outer {
+    width: 100%;
+    height: 300rpx;
+    background: #e4e4e4;
+    position: relative;
+}
+
+.circle-outer .circle-inner {
+    width: 100%;
+    height: 200rpx;
+    /* 圆以 circle-inner 为参照点 */
+    position: relative;
+    background: blue;
+}
+
+.circle-inner .circle {
+    /*  圆 */
+    border-radius: 50%;
+    background: #dd4b39;
+    /* 控制圆的位置 */
+    position: absolute;
+    bottom: 0;
+}
+
+.circle-outer .user-group {
+    /* 以哪个盒子为参照点，需要给对应的盒子设置 position  .circle-outer{position: relative;} */
+    position: absolute;
+    width: 200rpx;
+    font-size: 28rpx;
+    left: 50%;
+    right: 50%;
+    margin-left: -100rpx;
+    bottom: 20rpx;
+    text-align: center;
+}
+
+.user-group .avatar-img {
+    width: 100rpx;
+    height: 100rpx;
+    border: 2rpx solid #e8be34;
+}
+
+.placeholder {
+    height: 2000rpx;
+}
+
+
+scrollviewluckymoneydemo.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        // 获取系统信息
+        var systemInfo = wx.getSystemInfoSync();
+
+        console.log(systemInfo);
+        // windowHeight 可使用的窗口的高度 单位 px 不包含 tabBar 和 导航栏
+        var windowHeight = systemInfo.windowHeight;
+        var windowWidth = systemInfo.windowWidth;
+        console.log("windowHeight = " + windowHeight + "  windowWidth =" + windowWidth);
+
+        var width = windowWidth;
+        var height = 100;
+        var radius = (height / 2) + (width * width / 8 / height);
+        console.log("radius = " + radius);
+        // 用于移动圆
+        var left = -(radius - width / 2);
+        this.setData({
+            windowHeight: windowHeight,
+            windowWidth: windowWidth,
+            radius: radius,
+            left: left
+        })
+    },
+
+    scrollEvent: function(event) {
+        console.log(event);
+        var scrollTop = event.detail.scrollTop;
+        if (scrollTop > 0 && scrollTop <= 100) {
+            var height = 100 - scrollTop;
+            var width = this.data.windowWidth;
+            var radius = height / 2 + width * width / 8 / height;
+            var left = -(radius - width / 2);
+            this.setData({
+                radius: radius,
+                left: left
+            })
+        }
+    }
+})
+```

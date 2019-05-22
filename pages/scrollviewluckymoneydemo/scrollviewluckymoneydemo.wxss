@@ -1,0 +1,53 @@
+/* pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo.wxss */
+
+.scroll-group {
+    width: 100%;
+    height: 200rpx;
+    background: grey;
+}
+
+.scroll-group .circle-outer {
+    width: 100%;
+    height: 300rpx;
+    background: #e4e4e4;
+    position: relative;
+}
+
+.circle-outer .circle-inner {
+    width: 100%;
+    height: 200rpx;
+    /* 圆以 circle-inner 为参照点 */
+    position: relative;
+    background: blue;
+}
+
+.circle-inner .circle {
+    /*  圆 */
+    border-radius: 50%;
+    background: #dd4b39;
+    /* 控制圆的位置 */
+    position: absolute;
+    bottom: 0;
+}
+
+.circle-outer .user-group {
+    /* 以哪个盒子为参照点，需要给对应的盒子设置 position  .circle-outer{position: relative;} */
+    position: absolute;
+    width: 200rpx;
+    font-size: 28rpx;
+    left: 50%;
+    right: 50%;
+    margin-left: -100rpx;
+    bottom: 20rpx;
+    text-align: center;
+}
+
+.user-group .avatar-img {
+    width: 100rpx;
+    height: 100rpx;
+    border: 2rpx solid #e8be34;
+}
+
+.placeholder {
+    height: 2000rpx;
+}

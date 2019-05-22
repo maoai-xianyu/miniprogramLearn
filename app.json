@@ -1,11 +1,12 @@
 {
     "pages": [
-        "pages/scrollViewDemo/scrollViewDemo",
+        "pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
         "pages/flexdemo/flexdemo",
         "pages/weibo/weibo",
+        "pages/scrollViewDemo/scrollViewDemo",
         "pages/viewdemo/viewdemo",
         "pages/wxsdemo/wxsdemo",
         "pages/zhifubao/zhifubao",
@@ -28,8 +29,8 @@
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "list": [{
-                "pagePath": "pages/scrollViewDemo/scrollViewDemo",
-                "text": "scrollview组件",
+                "pagePath": "pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo",
+                "text": "微信红包",
                 "iconPath": "images/tabbars/tab_home.png",
                 "selectedIconPath": "images/tabbars/tab_home_selected.png"
             },

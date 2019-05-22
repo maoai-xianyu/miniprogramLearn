@@ -1,0 +1,13 @@
+<!-- pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo.wxml -->
+<scroll-view scroll-y="{{true}}" class="scroll-group" style="height:{{windowHeight*2}}rpx;" bindscroll="scrollEvent">
+    <view class="circle-outer">
+        <view class="circle-inner">
+            <view class="circle" style="width:{{radius*2*2}}rpx;height:{{radius*2*2}}rpx;left:{{left*2}}rpx;"></view>
+        </view>
+        <view class="user-group">
+            <image class="avatar-img" src="../../images/maoai_xianyu.png" />
+            <view class="user-name">codingtk</view>
+        </view>
+    </view>
+    <view class="placeholder"></view>
+</scroll-view>
