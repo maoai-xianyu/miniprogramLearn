@@ -2,7 +2,7 @@
 <view class="listview-group">
     <view class="itemview-group">
         <movable-area class="chatarea-group" style="width:{{(windowWidth-100)*2}}rpx;">
-            <movable-view class="chat-group" direction="horizontal" style="width:{{windowWidth*2}}rpx;">周杰伦</movable-view>
+            <movable-view class="chat-group" x="{{x}}" bindchange="onChangeEvent" bind:touchend="onTouchEndEvent" bind:touchstart="onTouchStartEvent" direction="horizontal" style="width:{{windowWidth*2}}rpx;">周杰伦</movable-view>
         </movable-area>
         <view class="delete-group">删除</view>
     </view>

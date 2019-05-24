@@ -2125,16 +2125,17 @@ Page({
 
 ```
 
-##  62 movable-view组件 左滑删除案例
+## 62 63 movable-view组件 左滑删除案例
 
 > folder movablechatdemo
 
 ```
 movablechatdemo.wxml
+
 <view class="listview-group">
     <view class="itemview-group">
         <movable-area class="chatarea-group" style="width:{{(windowWidth-100)*2}}rpx;">
-            <movable-view class="chat-group" direction="horizontal" style="width:{{windowWidth*2}}rpx;">周杰伦</movable-view>
+            <movable-view class="chat-group" x="{{x}}" bindchange="onChangeEvent" bind:touchend="onTouchEndEvent" bind:touchstart="onTouchStartEvent" direction="horizontal" style="width:{{windowWidth*2}}rpx;">周杰伦</movable-view>
         </movable-area>
         <view class="delete-group">删除</view>
     </view>
@@ -2175,26 +2176,82 @@ movablechatdemo.wxss
 }
 
 movablechatdemo.js
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+    /**
+     * 页面的初始数据
+     */
+    data: {
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
 
-    var systemInfo = wx.getSystemInfoSync();
-    var windowWidth = systemInfo.windowWidth;
+        var systemInfo = wx.getSystemInfoSync();
+        var windowWidth = systemInfo.windowWidth;
 
-    this.setData({
-      windowWidth: windowWidth
-    })
-  }
+        this.setData({
+            windowWidth: windowWidth
+        })
+    },
+
+    onTouchStartEvent: function(event) {
+        console.log("=======onTouchStartEvent");
+        console.log(event);
+
+        var startPageX = event.touches[0].pageX;
+        this.setData({
+            startPageX: startPageX
+        })
+    },
+
+    onTouchEndEvent: function(event) {
+        console.log("=======onTouchEndEvent");
+        console.log(event);
+
+        var endPageX = event.changedTouches[0].pageX;
+        var startPageX = this.data.startPageX;
+        var changeX = this.data.changeX;
+        // 如果起始点大于结束点，说明是往左滑动
+        if (startPageX > endPageX) {
+            if (changeX < -20) {
+                this.setData({
+                    x: -100
+                })
+            } else {
+                this.setData({
+                    x: 0
+                })
+            }
+        } else {
+            //说明是往右滑动
+            if (changeX > -80) {
+                this.setData({
+                    x: 0
+                })
+            } else {
+                this.setData({
+                    x: -100
+                })
+            }
+        }
+
+        this.setData({
+            endPageX: endPageX
+        })
+    },
+
+    onChangeEvent: function(event) {
+        console.log("=======onChangeEvent");
+        console.log(event);
+        var changeX = event.detail.x;
+        this.setData({
+            changeX: changeX
+        })
+    }
 })
 ```
