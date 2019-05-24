@@ -2124,3 +2124,77 @@ Page({
 
 
 ```
+
+##  62 movable-view组件 左滑删除案例
+
+> folder movablechatdemo
+
+```
+movablechatdemo.wxml
+<view class="listview-group">
+    <view class="itemview-group">
+        <movable-area class="chatarea-group" style="width:{{(windowWidth-100)*2}}rpx;">
+            <movable-view class="chat-group" direction="horizontal" style="width:{{windowWidth*2}}rpx;">周杰伦</movable-view>
+        </movable-area>
+        <view class="delete-group">删除</view>
+    </view>
+</view>
+
+movablechatdemo.wxss
+.listview-group {
+    width: 100%;
+    height: 1000rpx;
+    background: #ccc;
+}
+
+.listview-group .itemview-group {
+    width: 100%;
+    height: 200rpx;
+    background: pink;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.itemview-group .chatarea-group {
+    height: 100%;
+    background: burlywood;
+    display: inline-block;
+}
+
+.chatarea-group .chat-group {
+    height: 100%;
+    background: skyblue;
+}
+
+.itemview-group .delete-group {
+    width: 200rpx;
+    height: 100%;
+    background: red;
+    line-height: 200rpx;
+    text-align: center;
+}
+
+movablechatdemo.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+    var systemInfo = wx.getSystemInfoSync();
+    var windowWidth = systemInfo.windowWidth;
+
+    this.setData({
+      windowWidth: windowWidth
+    })
+  }
+})
+```

@@ -1,0 +1,34 @@
+/* pages/movablechatdemo/movablechatdemo.wxss */
+
+.listview-group {
+    width: 100%;
+    height: 1000rpx;
+    background: #ccc;
+}
+
+.listview-group .itemview-group {
+    width: 100%;
+    height: 200rpx;
+    background: pink;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.itemview-group .chatarea-group {
+    height: 100%;
+    background: burlywood;
+    display: inline-block;
+}
+
+.chatarea-group .chat-group {
+    height: 100%;
+    background: skyblue;
+}
+
+.itemview-group .delete-group {
+    width: 200rpx;
+    height: 100%;
+    background: red;
+    line-height: 200rpx;
+    text-align: center;
+}
