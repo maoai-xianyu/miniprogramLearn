@@ -2443,3 +2443,95 @@ text {
     background: blueviolet;
 }
 ```
+
+## 68 rich-text组件,用于网页显示
+
+> folder richtextdemo
+
+1. nodes 节点列表/HTML String
+2. space 显示连续空格
+
+```
+
+richtextdemo.wxml
+
+<rich-text nodes="{{articles}}"/>
+<rich-text class="" nodes="{{article}}"></rich-text>
+<rich-text class="" nodes="{{articleArry}}"></rich-text>
+<view class="view-tools-group">富文本软件获取富文本</view>
+<rich-text class="" nodes="{{articleTools}}"></rich-text>
+
+<view class="view-tools-group">富文本软件wxml获取富文本</view>
+<rich-text class="" nodes="{{articleJsonTools}}"></rich-text>
+
+var articleTools ="<div style="background:blue;">显示html代码div</div>";
+
+var articleJson = '[{"type":"node","children":[{"type":"node","children":[{"type":"text","text":"5月21日，2019腾讯全球数字生态大会在昆明开幕，"}]';
+articleJson = JSON.parse(articleJson);
+
+richtextdemo.wxss
+
+.div-group {
+    background: red;
+    margin-top: 20rpx;
+    font-size: 26rpx;
+}
+
+.div-class {
+    margin-top: 20rpx;
+}
+
+.view-tools-group {
+    background: rebeccapurple;
+    margin: 20rpx 0;
+}
+
+
+richtextdemo.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        articles: '<div style="background:blue;">显示html代码div</div>',
+        article: '<div class="div-group">显示css在wxss中控制</div>',
+        articleArry: [{
+            name: 'div',
+            attrs: {
+                class: 'div-class',
+                style: 'background:orange;'
+            },
+            children: [{
+                type: 'text',
+                text: '这是一个测试哦'
+            }]
+        }, ],
+        articleTools: articleTools,
+        articleJsonTools: articleJson,
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        console.log("===>onLoad");
+        var onloadTime = new Date().getTime();
+        this.setData({
+            onloadTime: onloadTime
+        })
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function() {
+        console.log("===>onReady")
+        var onloadTime = this.data.onloadTime;
+        var onReadyTime = new Date().getTime();
+        console.log("加载时间 = " + (onReadyTime - onloadTime));
+    }
+})
+
+```

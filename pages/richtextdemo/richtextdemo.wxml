@@ -1,0 +1,9 @@
+<!-- pages/richtextdemo/richtextdemo.wxml -->
+<rich-text nodes="{{articles}}"/>
+<rich-text class="" nodes="{{article}}"></rich-text>
+<rich-text class="" nodes="{{articleArry}}"></rich-text>
+<view class="view-tools-group">富文本软件获取富文本</view>
+<rich-text class="" nodes="{{articleTools}}"></rich-text>
+
+<view class="view-tools-group">富文本软件wxml获取富文本</view>
+<rich-text class="" nodes="{{articleJsonTools}}"></rich-text>

@@ -1,0 +1,16 @@
+/* pages/richtextdemo/richtextdemo.wxss */
+
+.div-group {
+    background: red;
+    margin-top: 20rpx;
+    font-size: 26rpx;
+}
+
+.div-class {
+    margin-top: 20rpx;
+}
+
+.view-tools-group {
+    background: rebeccapurple;
+    margin: 20rpx 0;
+}
