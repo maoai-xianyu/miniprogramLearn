@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        value: ''
 
     },
 
@@ -65,5 +66,10 @@ Page({
     },
     onUnload: function() {
         console.log("=====>event页面卸载");
+    },
+    onClearEvent: function(event) {
+        this.setData({
+            value: ''
+        })
     }
 })

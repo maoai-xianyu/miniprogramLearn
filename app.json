@@ -1,6 +1,6 @@
 {
     "pages": [
-        "pages/iconsearchdemo/iconsearchdemo",
+        "pages/zhifubao/zhifubao",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
@@ -8,13 +8,13 @@
         "pages/weibo/weibo",
         "pages/swiperdemo/swiperdemo",
         "pages/icondemo/icondemo",
+        "pages/iconsearchdemo/iconsearchdemo",
         "pages/movablechatdemo/movablechatdemo",
         "pages/movableviewdemo/movableviewdemo",
         "pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo",
         "pages/scrollViewDemo/scrollViewDemo",
         "pages/viewdemo/viewdemo",
         "pages/wxsdemo/wxsdemo",
-        "pages/zhifubao/zhifubao",
         "pages/tpl/wechat/wechat",
         "pages/logs/logs",
         "pages/index/index",
@@ -34,8 +34,8 @@
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "list": [{
-                "pagePath": "pages/iconsearchdemo/iconsearchdemo",
-                "text": "搜索栏工具",
+                "pagePath": "pages/zhifubao/zhifubao",
+                "text": "支付宝",
                 "iconPath": "images/tabbars/tab_home.png",
                 "selectedIconPath": "images/tabbars/tab_home_selected.png"
             },
