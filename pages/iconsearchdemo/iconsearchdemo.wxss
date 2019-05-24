@@ -1,0 +1,39 @@
+/* pages/iconsearchdemo/iconsearchdemo.wxss */
+
+.top-group {
+    width: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
+    background: #00b51d;
+}
+
+.top-group .search-group {
+    height: 70rpx;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 10rpx;
+    border-radius: 10rpx;
+}
+
+.search-group .search-icon {
+    flex-basis: 40rpx;
+}
+
+.search-group .input-group {
+    flex: 1;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+}
+
+.search-group .input-placeholder {
+    font-size: 28rpx;
+}
+
+.search-group .clear-icon {
+    flex-basis: 40rpx;
+}

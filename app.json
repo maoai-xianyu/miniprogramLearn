@@ -1,12 +1,13 @@
 {
     "pages": [
-        "pages/icondemo/icondemo",
+        "pages/iconsearchdemo/iconsearchdemo",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
         "pages/flexdemo/flexdemo",
         "pages/weibo/weibo",
         "pages/swiperdemo/swiperdemo",
+        "pages/icondemo/icondemo",
         "pages/movablechatdemo/movablechatdemo",
         "pages/movableviewdemo/movableviewdemo",
         "pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo",
@@ -33,8 +34,8 @@
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "list": [{
-                "pagePath": "pages/movablechatdemo/movablechatdemo",
-                "text": "移动滑动组件",
+                "pagePath": "pages/iconsearchdemo/iconsearchdemo",
+                "text": "搜索栏工具",
                 "iconPath": "images/tabbars/tab_home.png",
                 "selectedIconPath": "images/tabbars/tab_home_selected.png"
             },

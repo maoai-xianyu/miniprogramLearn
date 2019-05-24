@@ -2256,7 +2256,7 @@ Page({
 })
 ```
 
-## 64 icon组件
+## 64 65 icon组件
 
 > folder icondemo
 
@@ -2329,6 +2329,87 @@ Page({
             screenWidth: screenWidth - 40
         })
 
+    }
+})
+```
+
+## 66 icon 搜索栏案例
+
+> folder iconsearchdemo
+
+```
+iconsearchdemo.wxml
+
+<view class="top-group">
+    <view class="search-group">
+        <icon class="search-icon" type="search" size="40rpx" color="" />
+        <input class="input-group" placeholder="请输入查找内容" value="{{value}}" placeholder-class="input-placeholder" />
+        <icon class="clear-icon" bind:tap="onClickEvent" type="clear" size="40rpx" color="" />
+    </view>
+</view>
+
+iconsearchdemo.wxss
+
+.top-group {
+    width: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
+    background: #00b51d;
+}
+
+.top-group .search-group {
+    height: 70rpx;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 10rpx;
+    border-radius: 10rpx;
+}
+
+.search-group .search-icon {
+    flex-basis: 40rpx;
+}
+
+.search-group .input-group {
+    flex: 1;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+}
+
+.search-group .input-placeholder {
+    font-size: 28rpx;
+}
+
+.search-group .clear-icon {
+    flex-basis: 40rpx;
+}
+
+iconsearchdemo.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        value: ''
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+    },
+
+    onClickEvent: function(event) {
+        this.setData({
+            value: ''
+        })
     }
 })
 ```
