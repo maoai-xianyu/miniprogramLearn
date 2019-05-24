@@ -1,0 +1,9 @@
+/* pages/textdemo/textdemo.wxss */
+
+text {
+    /* width 无效 */
+    width: 200rpx;
+    /* height 无效 */
+    height: 200rpx;
+    background: blueviolet;
+}

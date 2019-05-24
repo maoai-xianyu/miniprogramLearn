@@ -2413,3 +2413,33 @@ Page({
     }
 })
 ```
+
+## 67 text组件
+
+> folder textdemo
+
+*  text组件
+
+1. text组件是行内元素，在布局的时候不会占据一整行。
+2. 给text组件设置宽高是没有效果的，他的宽高是根据里面的文字来的
+3. selectable 文本是否可选
+4. space 显示连续空格  ensp(中文字符空格一半大小)  emsp(中文字符空格大小)  nbsp(根据字体设置的空格大小)
+5. decode 是否解码
+6. 除了文本节点以外的其他节点都无法长按选中
+
+```
+textdemo.wxml
+
+<text decode="{{true}}" space="nbsp" selectable="{{true}}">hello &apos;      word</text>
+<text selectable="{{true}}">行内元素</text>
+
+
+textdemo.wxss
+text {
+    /* width 无效 */
+    width: 200rpx;
+    /* height 无效 */
+    height: 200rpx;
+    background: blueviolet;
+}
+```
