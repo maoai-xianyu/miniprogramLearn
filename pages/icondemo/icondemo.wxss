@@ -1,0 +1,16 @@
+/* pages/icondemo/icondemo.wxss */
+
+.text-group {
+    margin-top: 20rpx;
+}
+
+.success-btn {
+    width: 100%;
+    margin-top: 40rpx;
+    margin-bottom: 40rpx;
+}
+
+.cancel-btn {
+    width: 100%;
+    margin-top: 40rpx;
+}

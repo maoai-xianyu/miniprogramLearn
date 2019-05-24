@@ -2255,3 +2255,80 @@ Page({
     }
 })
 ```
+
+## 64 icon组件
+
+> folder icondemo
+
+### icon
+
+1. type 必填项 icon的类型，有效值：success, success_no_circle, info, warn, waiting, cancel, download, search, clear
+2. size 23默认 icon的大小
+3. color icon的颜色
+
+```
+icondemo.wxml
+
+<icon type="clear" size="23" />
+<view class="container">
+    <icon type="success" size="100" />
+    <view class="text-group">操作成功</view>
+    <button class="success-btn" type="primary" style="width:{{screenWidth*2}}rpx">完成</button>
+
+     <icon type="waiting" size="100" />
+    <view class="text-group">倒计时....{{seconds}}</view>
+    <button class="cancel-btn" type="default" style="width:{{screenWidth*2}}rpx">取消</button>
+</view>
+
+
+icondemo.wxss
+
+.text-group {
+    margin-top: 20rpx;
+}
+
+.success-btn {
+    width: 100%;
+    margin-top: 40rpx;
+    margin-bottom: 40rpx;
+}
+
+.cancel-btn {
+    width: 100%;
+    margin-top: 40rpx;
+}
+
+icondemo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        seconds: 5
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        var system = wx.getSystemInfoSync();
+        console.log(system);
+        var screenWidth = system.screenWidth;
+        var that = this;
+        setInterval(() => {
+            var seconds = that.data.seconds;
+            if (seconds >= 1) {
+                that.setData({
+                    seconds: seconds - 1
+                })
+            }
+        }, 1000);
+
+        this.setData({
+            screenWidth: screenWidth - 40
+        })
+
+    }
+})
+```

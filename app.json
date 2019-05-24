@@ -1,12 +1,13 @@
 {
     "pages": [
-        "pages/movablechatdemo/movablechatdemo",
+        "pages/icondemo/icondemo",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
         "pages/flexdemo/flexdemo",
         "pages/weibo/weibo",
         "pages/swiperdemo/swiperdemo",
+        "pages/movablechatdemo/movablechatdemo",
         "pages/movableviewdemo/movableviewdemo",
         "pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo",
         "pages/scrollViewDemo/scrollViewDemo",

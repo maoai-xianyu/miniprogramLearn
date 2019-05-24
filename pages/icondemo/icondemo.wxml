@@ -1,0 +1,19 @@
+<!-- pages/icondemo/icondemo.wxml -->
+<icon type="success" size="23" color="red" />
+<icon type="success_no_circle" size="23" />
+<icon type="info" size="23" color="red" />
+<icon type="warn" size="23" />
+<icon type="waiting" size="23" />
+<icon type="cancel" size="23" color="red" />
+<icon type="download" size="23" />
+<icon type="search" size="23" />
+<icon type="clear" size="23" />
+<view class="container">
+    <icon type="success" size="100" />
+    <view class="text-group">操作成功</view>
+    <button class="success-btn" type="primary" style="width:{{screenWidth*2}}rpx">完成</button>
+
+     <icon type="waiting" size="100" />
+    <view class="text-group">倒计时....{{seconds}}</view>
+    <button class="cancel-btn" type="default" style="width:{{screenWidth*2}}rpx">取消</button>
+</view>
