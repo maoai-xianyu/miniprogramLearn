@@ -16,7 +16,7 @@ Page({
         var that = this;
         var timer = setInterval(function() {
             var precent = that.data.precent;
-            if (precent > 100) {
+            if (precent >= 100) {
                 clearInterval(timer);
             } else {
                 that.setData({
