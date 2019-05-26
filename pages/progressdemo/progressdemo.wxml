@@ -1,0 +1,2 @@
+<!--pages/progressdemo/progressdemo.wxml-->
+<progress percent="{{precent}}" backgroundColor="gray" activeColor="red" stroke-width="30px" show-info="{{true}}" border-radius="20rpx" active="{{true}}" active-mode="forwards" />

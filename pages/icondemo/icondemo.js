@@ -16,12 +16,14 @@ Page({
         console.log(system);
         var screenWidth = system.screenWidth;
         var that = this;
-        setInterval(() => {
+        var timer = setInterval(() => {
             var seconds = that.data.seconds;
             if (seconds >= 1) {
                 that.setData({
                     seconds: seconds - 1
                 })
+            } else {
+                clearInterval(timer);
             }
         }, 1000);
 

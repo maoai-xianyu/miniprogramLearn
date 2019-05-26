@@ -2444,7 +2444,7 @@ text {
 }
 ```
 
-## 68 rich-text组件,用于网页显示
+## 68 69 70 rich-text组件,用于网页显示
 
 > folder richtextdemo
 
@@ -2531,6 +2531,58 @@ Page({
         var onloadTime = this.data.onloadTime;
         var onReadyTime = new Date().getTime();
         console.log("加载时间 = " + (onReadyTime - onloadTime));
+    }
+})
+
+```
+# 71 progress 
+
+> folder progressdemo
+
+* percent 百分比0~100
+* show-info  在进度条右侧显示百分比
+* border-radius 圆角大小
+* active 进度条从左往右的动画
+* active-mode backwards: 动画从头播；forwards：动画从上次结束点接着播
+* stroke-width 进度条线的宽度
+* activeColor 已选择的进度条的颜色
+* backgroundColor 未选择的进度条的颜色
+
+```
+progressdemo.wxml
+
+<progress percent="{{precent}}" backgroundColor="gray" activeColor="red" stroke-width="30px" show-info="{{true}}" border-radius="20rpx" active="{{true}}" active-mode="forwards" />
+
+
+progressdemo.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        precent: 0
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+        var that = this;
+        var timer = setInterval(function() {
+            var precent = that.data.precent;
+            if (precent > 100) {
+                clearInterval(timer);
+            } else {
+                that.setData({
+                    precent: precent + 10
+                })
+            }
+
+        }, 100);
+
     }
 })
 
