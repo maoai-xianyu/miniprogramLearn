@@ -1,0 +1,26 @@
+/* pages/buttondemo/buttondemo.wxss */
+
+.loading-group {
+    /* 没用，对button，需要加在伪类上 */
+    /* border: none; */
+    font-size: 28rpx;
+    color: #ccc;
+    margin-top: 40rpx;
+}
+
+
+/* 伪类 */
+
+.loading-group::after {
+    border: none;
+}
+
+.header-group {
+    width: 100%;
+    margin-top: 40rpx;
+    background: red;
+}
+
+.news-group {
+    margin-top: 20rpx;
+}

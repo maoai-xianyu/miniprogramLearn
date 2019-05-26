@@ -1,0 +1,13 @@
+<!--pages/buttondemo/buttondemo.wxml-->
+<button class="btn" size="default" type="warn" plain="{{true}}" loading="{{true}}" bindtap="onTap">
+    测试按钮
+</button>
+<view></view>
+<view></view>
+<view class="header-group">上拉加载更多按钮</view>
+<view wx:for="{{newses}}" class="news-group">
+    {{item}}
+</view>
+<button class="loading-group"  loading="{{true}}" bindtap="onTap">
+    正在加载.....
+</button>
