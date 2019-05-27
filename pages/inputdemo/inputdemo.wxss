@@ -1,0 +1,6 @@
+/* pages/inputdemo/inputdemo.wxss */
+
+.input-group {
+    width: 100%;
+    border: 2rpx solid #999999;
+}

@@ -1,0 +1,3 @@
+<!--pages/inputdemo/inputdemo.wxml-->
+<view style="height:500px;background:pink;"></view>
+<input class="input-group" bindfocus="onFocusEvent" bindinput="onInputEvent"  adjust-position="{{true}}" focus value="asdajhdkashjk" placeholder="请输入内容" selection-start="1" selection-end="5" maxlength="18" cursor-spacing="10px" />

@@ -2921,3 +2921,51 @@ Page({
 })
 
 ```
+
+## 78 79 80 input组件
+
+> folder inputdemo
+
+* password  是否是密码类型
+* placeholder 输入框为空时占位符
+* placeholder-style 指定 placeholder 的样式
+* placeholder-class 指定 placeholder 的样式类
+* maxlength 最大输入长度，设置为 -1 的时候不限制最大长度
+* cursor-spacing 在输入框被键盘挡住的时候，指定光标与键盘的距离，单位px（2.4.0起支持rpx）。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离。如果没有指定这个值，并且输入框被挡到了，那么距离键盘的距离为0。
+
+
+```
+inputdemo.wxml
+
+<view style="height:500px;background:pink;"></view>
+<input class="input-group" bindfocus="onFocusEvent" bindinput="onInputEvent"  adjust-position="{{true}}" focus value="asdajhdkashjk" placeholder="请输入内容" selection-start="1" selection-end="5" maxlength="18" cursor-spacing="10px" />
+
+
+inputdemo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+        var systemInfo = wx.getSystemInfoSync();
+        console.log(systemInfo);
+    },
+    onInputEvent: function(event) {
+        console.log("====onInputEvent======");
+        console.log(event);
+    },
+    onFocusEvent: function(event) {
+        console.log("====onFocusEvent======");
+        console.log(event);
+    }
+})
+```
