@@ -58,7 +58,7 @@ Page({
 
     },
 
-    // 页面滚动底部触发的方法
+    // 页面上拉触底事件的处理函数
     onReachBottom: function() {
         console.log("到底部了");
         var that = this;

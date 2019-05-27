@@ -1,0 +1,15 @@
+<!-- pages/checkboxdemo/checkboxdemo.wxml -->
+<checkbox-group bindchange="onChangeTestEvent">
+    <label wx:for="{{languages}}" wx:for-item="item" wx:key="{{item.id}}">
+        <checkbox value="{{item.id}}" checked="{{true}}" color="red">{{item.name}}</checkbox>
+    </label>
+</checkbox-group>
+<view class="eg-group">-------案例--------</view>
+<form bindsubmit="onSubmitEvent">
+    <checkbox-group bindchange="onChangeEvent" name="languages">
+        <label wx:for="{{languages}}" wx:for-item="item" wx:key="{{item.id}}">
+            <checkbox value="{{item.id}}" color="red">{{item.name}}</checkbox>
+        </label>
+    </checkbox-group>
+    <button class="btn" type="primary" form-type="submit">提交选项</button>
+</form>

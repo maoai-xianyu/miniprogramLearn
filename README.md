@@ -2812,3 +2812,112 @@ Page({
 })
 
 ```
+
+## 76 77 checkbox组件
+
+> folder checkboxdemo
+
+
+```
+
+checkboxdemo.wxml
+
+<checkbox-group bindchange="onChangeTestEvent">
+    <label wx:for="{{languages}}" wx:for-item="item" wx:key="{{item.id}}">
+        <checkbox value="{{item.id}}" checked="{{true}}" color="red">{{item.name}}</checkbox>
+    </label>
+</checkbox-group>
+<view class="eg-group">-------案例--------</view>
+<form bindsubmit="onSubmitEvent">
+    <checkbox-group bindchange="onChangeEvent" name="languages">
+        <label wx:for="{{languages}}" wx:for-item="item" wx:key="{{item.id}}">
+            <checkbox value="{{item.id}}" color="red">{{item.name}}</checkbox>
+        </label>
+    </checkbox-group>
+    <button class="btn" type="primary" form-type="submit">提交选项</button>
+</form>
+
+checkboxdemo.wxss
+
+.eg-group {
+    width: 100%;
+    height: 60rpx;
+    margin-top: 20rpx;
+    background: #cccccc;
+    font-size: 40rpx;
+    text-align: center;
+}
+
+
+/* 设置  checkbox  样式*/
+
+checkbox {
+    /* 没用，需要设置其他 */
+    border-radius: 50%;
+    font-size: 28rpx;
+}
+
+checkbox .wx-checkbox-input {
+    border-radius: 50%;
+}
+
+checkbox .wx-checkbox-input-checked {
+    background: red;
+    /* 选框边框颜色 */
+    border-color: red;
+}
+
+checkbox .wx-checkbox-input-checked::before {
+    color: white;
+}
+
+checkboxdemo.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        languages: [{
+                'id': 1,
+                'name': 'python'
+            },
+            {
+                'id': 2,
+                'name': 'java'
+            },
+            {
+                'id': 3,
+                'name': 'flutter'
+            },
+            {
+                'id': 4,
+                'name': 'dart'
+            },
+        ]
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+    },
+    onChangeTestEvent: function(event) {
+        console.log("demo---");
+        console.log(event);
+    },
+
+    onChangeEvent: function(event) {
+        console.log("测试阿里---");
+        console.log(event);
+    },
+    onSubmitEvent: function(event) {
+        console.log("表单提交");
+        console.log(event);
+    }
+})
+
+```

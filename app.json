@@ -1,6 +1,6 @@
 {
     "pages": [
-        "pages/buttonformdemo/buttonformdemo",
+        "pages/checkboxdemo/checkboxdemo",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
@@ -9,6 +9,7 @@
         "pages/progressdemo/progressdemo",
         "pages/swiperdemo/swiperdemo",
         "pages/textdemo/textdemo",
+        "pages/buttonformdemo/buttonformdemo",
         "pages/buttondemo/buttondemo",
         "pages/richtextdemo/richtextdemo",
         "pages/zhifubao/zhifubao",
