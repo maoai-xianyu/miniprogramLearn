@@ -7,7 +7,7 @@ Page({
     data: {
 
         newses: [],
-        soursces: [
+        sources: [
             '习近平向中国国际大数据产业博览会致贺信',
             '下周四见 这场中美主播的现场辩论拭目以待',
             '多个组织停华为会员 这波打击影响究竟如何',
@@ -32,7 +32,8 @@ Page({
             '[央视快评：坚守初心 为国奉献 老英雄张富清感人故事诠释初心]',
             '[安倍讨好特朗普太拼 却难掩尴尬 相扑馆迎特朗普做极罕见改变]',
             '肯塔基州女性堕胎后蒙面出行'
-        ]
+        ],
+        haveMoreLoading: true
 
     },
 
@@ -41,18 +42,47 @@ Page({
      */
     onLoad: function(options) {
         var that = this;
-        setInterval(() => {
-            var soursces = that.data.soursces;
+        setTimeout(() => {
+            var sources = that.data.sources;
             var newses = [];
             for (let index = 0; index < 10; index++) {
-                var news = soursces[index];
+                var news = sources[index];
                 newses.push(news);
             }
+            console.log("定时加载，一直在走");
             that.setData({
                 newses: newses
             })
 
         }, 1000)
+
+    },
+
+    // 页面滚动底部触发的方法
+    onReachBottom: function() {
+        console.log("到底部了");
+        var that = this;
+        setTimeout(() => {
+            var newses = that.data.newses;
+            var newsesLength = newses.length;
+            var sources = that.data.sources;
+            var sourcesLength = sources.length;
+            if (newsesLength === sourcesLength) {
+                that.setData({
+                    haveMoreLoading: false
+                })
+                return;
+            }
+            var start = newsesLength;
+            var end = Math.min(start + 9, sourcesLength - 1);
+            for (var index = start; index <= end; index++) {
+                var news = sources[index];
+                newses.push(news);
+            }
+            that.setData({
+                newses: newses
+            })
+        }, 1000);
 
     }
 })

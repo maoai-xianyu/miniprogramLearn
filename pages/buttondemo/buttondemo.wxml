@@ -5,9 +5,12 @@
 <view></view>
 <view></view>
 <view class="header-group">上拉加载更多按钮</view>
-<view wx:for="{{newses}}" class="news-group">
+<view wx:for="{{newses}}" class="news-group" wx:key="*this">
     {{item}}
 </view>
-<button class="loading-group"  loading="{{true}}" bindtap="onTap">
+<button wx:if="{{haveMoreLoading}}" class="loading-group"  loading="{{true}}" bindtap="onTap">
     正在加载.....
+</button>
+<button wx:else class="loading-group" bindtap="onTap">
+    没有更多数了
 </button>
