@@ -1,0 +1,27 @@
+/* pages/buttonformdemo/buttonformdemo.wxss */
+
+.form-group {
+    margin-top: 20rpx;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20rpx;
+}
+
+.form-group text {
+    width: 200rpx;
+    margin-left: 20rpx;
+}
+
+.form-group .input-group {
+    flex: 1;
+    border: 1rpx solid #ccc;
+    border-radius: 10rpx;
+    margin-right: 10rpx;
+}
+
+.btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

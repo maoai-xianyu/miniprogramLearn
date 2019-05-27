@@ -2729,3 +2729,86 @@ Page({
     }
 })
 ```
+
+## 75 buttom form-type属性
+
+> folder buttonformdemo
+
+```
+buttonformdemo.wxml
+
+<form bindsubmit="onSubmitEvent">
+    <view class="form-group">
+        <text>用户名：</text>
+        <input placeholder="请输入用户名" name="usernmae" class="input-group" />
+    </view>
+    <view class="form-group">
+        <text>密码：</text>
+        <input placeholder="请输入密码" name="password" class="input-group" type="password" />
+    </view>
+    <view class="btn-group">
+        <button type="primary" size="mini" form-type="submit">按钮文本</button>
+        <button type="warn" size="mini" form-type="reset">重置</button>
+    </view>
+</form>
+
+
+buttonformdemo.wxss
+.form-group {
+    margin-top: 20rpx;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20rpx;
+}
+
+.form-group text {
+    width: 200rpx;
+    margin-left: 20rpx;
+}
+
+.form-group .input-group {
+    flex: 1;
+    border: 1rpx solid #ccc;
+    border-radius: 10rpx;
+    margin-right: 10rpx;
+}
+
+.btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+buttonformdemo.js
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+    },
+
+    onSubmitEvent: function(event) {
+        console.log(event);
+        var value = event.detail.value;
+        var username = value.usernmae;
+        var password = value.password;
+        if (username === 'tk' && password === '111111') {
+            wx.navigateTo({ url: '/pages/buttondemo/buttondemo' });
+        } else {
+            console.log("用户名密码错误");
+        }
+    }
+})
+
+```

@@ -1,0 +1,15 @@
+<!-- pages/buttonformdemo/buttonformdemo.wxml -->
+<form bindsubmit="onSubmitEvent">
+    <view class="form-group">
+        <text>用户名：</text>
+        <input placeholder="请输入用户名" name="usernmae" class="input-group" />
+    </view>
+    <view class="form-group">
+        <text>密码：</text>
+        <input placeholder="请输入密码" name="password" class="input-group" type="password" />
+    </view>
+    <view class="btn-group">
+        <button type="primary" size="mini" form-type="submit">按钮文本</button>
+        <button type="warn" size="mini" form-type="reset">重置</button>
+    </view>
+</form>
