@@ -1,0 +1,16 @@
+/* components/mypage/mypage.wxss */
+
+.body {
+    width: 100%;
+    display: flex;
+}
+
+.left {
+    flex: 1;
+    background: blue;
+}
+
+.right {
+    flex: 1;
+    background: blueviolet;
+}

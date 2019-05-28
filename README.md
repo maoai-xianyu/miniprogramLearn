@@ -7,6 +7,10 @@
 记录：
 > 目前学习到wxml数据绑定，列表渲染。16节完成，准备17节
 
+# 第一章 小程序基础部分
+
+> 前面16节比较通俗易懂
+
 ## 17节 wx:key 需要一个唯一的标识，保持状态
 
 wx:key 的值以两种形式提供
@@ -2968,4 +2972,193 @@ Page({
         console.log(event);
     }
 })
+```
+
+# 第二章 小程序进阶
+
+## 81 82 83 自定义组件
+
+> folder components组件folder   componentsdemo
+ 
+### 一、创建组件：
+
+1. 自定义一个components文件夹，用来存放所有自定义的组件。
+2. 再针对每一个组件创建一个文件夹，用来存放这个组件相关的文件。比如mybox这个组件，那么可以创建一个mybox的一个文件夹。
+3. 在指定组件的文件夹中右键->新建Component创建组件。这样创建的目的是在json文件中添加"component": true，将其申明为一个组件。
+4. 在wxml文件中做好组件的节点布局。比如以下代码：
+
+```
+<!-- components/mybox/mybox.wxml -->
+
+<view class="outter">
+ <view class="inner">盒子鱼</view>
+</view>
+
+```
+
+### 二、使用组件：
+
+1. 在需要使用自定义组件的页面的json文件中注册组件。添加类似如下代码：
+
+```
+pages/componentsdemo/componentsdemo.json
+
+{
+   "usingComponents": {
+     "mybox": "/components/mybox/mybox"
+   }
+}
+```
+2. 然后在wxml模板文件中使用组件：
+
+```
+pages/componentsdemo/componentsdemo.wxml
+<mybox></mybox>
+```
+
+### 三、给自定义组件添加属性：
+
+1. 在组件的js文件中，在properties中添加属性，添加属性的时候，需要指定两个值，一个是type，代表的是这个属性的类型，一个是value，代表的是这个属性的默认值。示例代码如下：
+```
+
+// components/mybox/mybox.js
+Component({
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        innerText: {
+            type: String,
+            value: ""
+        },
+        outerSize: {
+            type: Number,
+            value: 200
+        }
+    },
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
+    }
+})
+```
+
+2. 然后在wxml模板中就可以使用了。示例代码如下：
+
+```
+<!-- components/mybox/mybox.wxml -->
+<view class="outter" style="width:{{outerSize}}px;height;{{outerSize}};">
+    <view class="inner">{{innerText}}</view>
+</view>
+```
+
+3. 在使用组件的时候，可以直接在组件上给这个属性设置值:
+
+```
+<!--pages/componentsdemo/componentsdemo.wxml-->
+<mybox innerText="内部盒子" outerSize="400"></mybox>
+```
+
+4. 还有另外一种使用data的形式，data中的数据可以渲染到组件的代码中，但是使用data不能作为属性来使用。
+
+
+### 三、在组件中添加节点：
+
+在使用小程序内置的组件的时候，比如view，我们还可以在view中添加其他的组件。这个功能可以通过slot节点来实现。示例代码如下：
+
+```
+<!-- components/mypage/mypage.wxml -->
+<view class="viewContainer">
+    <view class="header">这是header部分</view>
+    <slot></slot>
+</view>
+
+<!-- pages/componentsdemo/componentsdemo.wxml -->
+<mybox innerText="内部盒子" outerSize="400"></mybox>
+<mypage>
+    <view>这是的数据</view>
+</mypage>
+
+```
+
+```
+<!-- components/mypage/mypage.wxml -->
+<view class="viewContainer">
+    <view class="header">这是header部分</view>
+    <view class="body">
+        <view class="left">
+            <slot name="left"></slot>
+        </view>
+        <view class="right">
+            <slot name="right"></slot>
+        </view>
+    </view>
+</view>
+
+
+// components/mypage/mypage.js
+Component({
+    // 显示多个 slot
+    options: {
+        multipleSlots: true
+    },
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+
+    },
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
+    }
+})
+
+
+/* components/mypage/mypage.wxss */
+
+.body {
+    width: 100%;
+    display: flex;
+}
+
+.left {
+    flex: 1;
+    background: blue;
+}
+
+.right {
+    flex: 1;
+    background: blueviolet;
+}
+
+
+<!-- pages/componentsdemo/componentsdemo.wxml -->
+<mybox innerText="内部盒子" outerSize="400"></mybox>
+<mypage>
+    <view slot="left">这是左边的数据</view>
+    <view slot="right">这是右边的数据</view>
+</mypage>
+
+
 ```

@@ -1,0 +1,12 @@
+<!-- components/mypage/mypage.wxml -->
+<view class="viewContainer">
+    <view class="header">这是header部分</view>
+    <view class="body">
+        <view class="left">
+            <slot name="left"></slot>
+        </view>
+        <view class="right">
+            <slot name="right"></slot>
+        </view>
+    </view>
+</view>

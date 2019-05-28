@@ -1,0 +1,6 @@
+<!-- pages/componentsdemo/componentsdemo.wxml -->
+<mybox innerText="内部盒子" outerSize="400"></mybox>
+<mypage>
+    <view slot="left">这是左边的数据</view>
+    <view slot="right">这是右边的数据</view>
+</mypage>

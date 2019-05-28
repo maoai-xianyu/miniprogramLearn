@@ -1,0 +1,4 @@
+<!-- components/mybox/mybox.wxml -->
+<view class="outter" style="width:{{outerSize}}px;height;{{outerSize}};">
+    <view class="inner">{{innerText}}</view>
+</view>
