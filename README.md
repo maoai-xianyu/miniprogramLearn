@@ -2976,7 +2976,7 @@ Page({
 
 # 第二章 小程序进阶
 
-## 81 82 83 自定义组件
+## 81 82 83 84 自定义组件
 
 > folder components组件folder   componentsdemo
  
@@ -3152,7 +3152,6 @@ Component({
     background: blueviolet;
 }
 
-
 <!-- pages/componentsdemo/componentsdemo.wxml -->
 <mybox innerText="内部盒子" outerSize="400"></mybox>
 <mypage>
@@ -3161,4 +3160,118 @@ Component({
 </mypage>
 
 
+```
+
+### 组件样式注意事项：
+
+组件对应 wxss 文件的样式，只对组件wxml内的节点生效。编写组件样式时，需要注意以下几点：
+
+1. 组件和引用组件的页面不能使用id选择器（#a）、属性选择器（[a]）和标签名选择器，请改用class选择器。
+2. 组件和引用组件的页面中使用后代选择器（.a .b）在一些极端情况下会有非预期的表现，如遇，请避免使用。
+3. 子元素选择器（.a>.b）只能用于 view 组件与其子节点之间，用于其他组件可能导致非预期的情况。
+4. 继承样式，如 font 、 color ，会从组件外继承到组件内。
+5. 除继承样式外， app.wxss 中的样式、组件所在页面的的样式对自定义组件无效。
+
+```
+#a { } /* 在组件中不能使用 */
+[a] { } /* 在组件中不能使用 */
+button { } /* 在组件中不能使用 */
+.a > .b { } /* 除非 .a 是 view 组件节点，否则不一定会生效 */
+```
+
+### 事件
+
+1. 组件可以直接再外面绑定事件。示例代码如下：
+```
+// components/mypage/mypage.js
+Component({
+    // 显示多个 slot
+    options: {
+        multipleSlots: true
+    },
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+
+    },
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
+        // 自定义事件
+        onBodyTapEvent: function(event) {
+            console.log("组件内自定义事件");
+            console.log(event);
+            var index = event.target.dataset.index;
+            var detail = {
+                "index": index
+            };
+            var options = {};
+            this.triggerEvent("onBodyEvent", detail, options);
+        }
+    }
+})
+```
+2. 自定义组件事件。直接在组件内绑定事件。并且如果我们想在组件内捕获到事件后，要通知到父组件，那么可以通过triggerEvent方法来触发自定义的事件。
+
+```
+
+<!-- pages/componentsdemo/componentsdemo.wxml -->
+<mybox innerText="内部盒子" outerSize="400"></mybox>
+<mypage bind:tap="onMypageTapEvent" bind:onBodyEvent="onBodyEvent">
+    <view slot="left">这是左边的数据</view>
+    <view slot="right">这是右边的数据</view>
+</mypage>
+
+```
+
+然后在组件的js文件中，使用以下代码进行捕获和传递给父组件
+
+```
+<!-- pages/componentsdemo/componentsdemo.wxml -->
+<mybox innerText="内部盒子" outerSize="400"></mybox>
+<mypage bind:tap="onMypageTapEvent" bind:onBodyEvent="onBodyEvent">
+    <view slot="left">这是左边的数据</view>
+    <view slot="right">这是右边的数据</view>
+</mypage>
+
+// pages/componentsdemo/componentsdemo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+    },
+
+    onMypageTapEvent: function(event) {
+        // console.log("事件调用");
+        // console.log(event);
+    },
+
+    onBodyEvent: function(event) {
+        console.log("自定义事件");
+        console.log(event);
+        var index = event.detail.index;
+        console.log(index);
+    }
+})
 ```

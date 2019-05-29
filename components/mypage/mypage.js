@@ -23,5 +23,16 @@ Component({
      */
     methods: {
 
+        // 自定义事件
+        onBodyTapEvent: function(event) {
+            console.log("组件内自定义事件");
+            console.log(event);
+            var index = event.target.dataset.index;
+            var detail = {
+                "index": index
+            };
+            var options = {};
+            this.triggerEvent("onBodyEvent", detail, options);
+        }
     }
 })

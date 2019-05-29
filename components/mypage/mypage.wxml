@@ -2,10 +2,10 @@
 <view class="viewContainer">
     <view class="header">这是header部分</view>
     <view class="body">
-        <view class="left">
+        <view class="left" bind:tap="onBodyTapEvent" data-index="0">
             <slot name="left"></slot>
         </view>
-        <view class="right">
+        <view class="right" bind:tap="onBodyTapEvent" data-index="1">
             <slot name="right"></slot>
         </view>
     </view>
