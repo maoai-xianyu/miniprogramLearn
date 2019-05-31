@@ -1,0 +1,6 @@
+/* pages/jokerequestdemo/jokerequestdemo.wxss */
+
+.content-group {
+    padding: 20rpx;
+    border-bottom: 1px solid #e4e4e4;
+}

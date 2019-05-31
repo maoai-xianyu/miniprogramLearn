@@ -1,11 +1,12 @@
 {
     "pages": [
-        "pages/apirequestdemo/apirequestdemo",
+        "pages/jokerequestdemo/jokerequestdemo",
         "pages/course/course",
         "pages/weibolist/weibolist",
         "pages/event/event",
         "pages/flexdemo/flexdemo",
         "pages/weibo/weibo",
+        "pages/apirequestdemo/apirequestdemo",
         "pages/segmentdemo/segmentdemo",
         "pages/componentsdemo/componentsdemo",
         "pages/inputdemo/inputdemo",
@@ -44,7 +45,7 @@
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "list": [{
-                "pagePath": "pages/apirequestdemo/apirequestdemo",
+                "pagePath": "pages/jokerequestdemo/jokerequestdemo",
                 "text": "网络请求",
                 "iconPath": "images/tabbars/tab_home.png",
                 "selectedIconPath": "images/tabbars/tab_home_selected.png"
