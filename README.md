@@ -2976,7 +2976,7 @@ Page({
 
 # 第二章 小程序进阶
 
-## 81 82 83 84 自定义组件
+## 81 82 83 84 85 自定义组件
 
 > folder components组件folder   componentsdemo
  
@@ -3276,9 +3276,7 @@ Page({
 })
 ```
 
-## 84 生命周期
->
-
+## 86 生命周期
 
 组件的生命周期，指的是组件自身的一些函数，这些函数在特殊的时间点或遇到一些特殊的框架事件时被自动触发。
 
@@ -3328,34 +3326,205 @@ Component({
         }
     },
 
+    // 生命周期方法
     lifetimes: {
+        // 组件实例刚刚被创建好时，created生命周期被触发。此时，组件数据this.data就是在Component构造器中定义的数据data。此时还不能调用setData
         created: function() {
             console.log("======>created");
         },
+        // 在组件完全初始化完毕、进入页面节点树后，attached生命周期被触发。此时，this.data已被初始化为组件的当前值。
         attached: function() {
             console.log("======>attached");
         },
+        // 在组件离开页面节点树后，detached生命周期被触发。
         detached: function() {
             console.log("======>detached");
         }
     },
 
+    // 监听组件的生命周期方法
     pageLifetimes: {
+        // 组件所在的页面被展示时执行
         show: function() {
             console.log("======>show");
         },
-
+        // 	组件所在的页面被隐藏时执行
         hide: function() {
             console.log("======>hide");
         },
-
+        // 组件不执行
         onload: function() {
             console.log("不触发======>onload");
         },
+        // 组件所在的页面尺寸变化时执行
         resize: function() {
             console.log("======>resize");
         }
     }
 
 })
+```
+
+## 87 88 89 自定义组件案例
+
+> folder segmentdemo    components segment
+
+```
+
+<!-- components/segment/segment.wxml -->
+<view class="segment-group">
+    <view class="segment-header-group">
+        <block wx:for="{{items}}" wx:key="*this">
+            <view class="segment-item active" bind:tap="onItemTapEvent" data-index="{{index}}" wx:if="{{currentIndex === index}}">
+                {{item}}
+            </view>
+            <view class="segment-item" bind:tap="onItemTapEvent" data-index="{{index}}" wx:else>
+                {{item}}
+            </view>
+        </block>
+    </view>
+    <view class="segment-body-group">
+        <block wx:for="{{items}}" wx:key="*this">
+            <slot name="{{index}}" wx:if="{{currentIndex === index}}"></slot>
+        </block>
+    </view>
+</view>
+
+/* pages/segmentdemo/segmentdemo.wxss */
+
+.segment-page {
+    width: 100%;
+    height: 600rpx;
+}
+
+.news-list {
+    background: skyblue;
+}
+
+.focus-list {
+    background: pink;
+}
+
+.city-list {
+    background: seagreen;
+}
+
+// components/segment/segment.js
+Component({
+
+    // 要添加多个slot
+    options: {
+        multipleSlots: true
+    },
+
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        items: {
+            type: Array,
+            value: []
+        },
+        defaultIndex: {
+            type: Number,
+            value: 0
+        }
+    },
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        currentIndex: 0
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
+        onItemTapEvent: function(event) {
+            console.log("组件自定义点击");
+            console.log(event);
+            var index = event.target.dataset.index;
+            this.setData({
+                currentIndex: index
+            });
+            var detail = {
+                "index": index
+            }
+            var options = {};
+            this.triggerEvent("itemChanged", detail, options);
+        }
+
+    },
+
+    lifetimes: {
+        created: function() {
+            console.log("===created执行");
+        },
+        // 初始化后，可以获取数据
+        attached: function() {
+            var that = this;
+            this.setData({
+                currentIndex: that.properties.defaultIndex
+            })
+
+        }
+    }
+})
+
+---------------------------
+
+<!-- pages/segmentdemo/segmentdemo.wxml -->
+<segment items="{{items}}" defaultIndex="0" bind:itemChanged="onChangedItemSegment">
+    <view slot="0" class="segment-page news-list">最新消息</view>
+    <view slot="1" class="segment-page focus-list">关注消息</view>
+    <view slot="2" class="segment-page city-list">同城消息</view>
+</segment>
+
+/* pages/segmentdemo/segmentdemo.wxss */
+
+.segment-page {
+    width: 100%;
+    height: 600rpx;
+}
+
+.news-list {
+    background: skyblue;
+}
+
+.focus-list {
+    background: pink;
+}
+
+.city-list {
+    background: seagreen;
+}
+
+// pages/segmentdemo/segmentdemo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        items: ['最新', '关注', '同城']
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+    },
+
+    onChangedItemSegment: function(event) {
+        console.log("出发点击事件，获取数据");
+        console.log(event);
+        var index = event.detail.index;
+        console.log(index);
+    }
+})
+
 ```
