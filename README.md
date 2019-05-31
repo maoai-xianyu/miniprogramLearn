@@ -3528,3 +3528,55 @@ Page({
 })
 
 ```
+
+## 90 网络请求API-天气预报
+
+> folder apirequestdemo
+
+### api 请求详情查看官方文档
+
+### 免费数据  [聚合数据](https://www.juhe.cn/service) 获取接口
+
+1. 微信上线小程序请求接口需要https(在工具练习，可以忽略https)
+2. 微信上线小程序域名必须在小程序后台进行绑定。
+
+```
+// pages/apirequestdemo/apirequestdemo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+        wx.request({
+            url: 'http://apis.juhe.cn/simpleWeather/query', //开发者服务器接口地址",
+            data: {
+                city: "北京",
+                key: "5a1f6cd28f22f0125b24a7837c463fbd"
+            }, //请求的参数",
+            method: 'GET',
+            dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
+            success: res => {
+                console.log(res);
+                console.log(res.data.result.realtime);
+            },
+            fail: () => {
+                console.log("请求失败");
+            },
+            complete: () => {
+                console.log("请求完成!!");
+            }
+        });
+
+    }
+})
+
+```
