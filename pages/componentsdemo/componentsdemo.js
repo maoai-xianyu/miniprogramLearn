@@ -20,7 +20,7 @@ Page({
         // console.log(event);
     },
 
-    onBodyEvent: function(event) {
+    onBodyClickEvent: function(event) {
         console.log("自定义事件");
         console.log(event);
         var index = event.detail.index;

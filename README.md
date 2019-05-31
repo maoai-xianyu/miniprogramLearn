@@ -3275,3 +3275,87 @@ Page({
     }
 })
 ```
+
+## 84 生命周期
+>
+
+
+组件的生命周期，指的是组件自身的一些函数，这些函数在特殊的时间点或遇到一些特殊的框架事件时被自动触发。
+
+其中，最重要的生命周期是created/attached/detached，包含一个组件实例生命流程的最主要时间点。
+
+1. 组件实例刚刚被创建好时，created生命周期被触发。此时，组件数据this.data就是在Component构造器中定义的数据data。此时还不能调用setData。通常情况下，这个生命周期只应该用于给组件this添加一些自定义属性字段。
+2. 在组件完全初始化完毕、进入页面节点树后，attached生命周期被触发。此时，this.data已被初始化为组件的当前值。这个生命周期很有用，绝大多数初始化工作可以在这个时机进行。
+3. 在组件离开页面节点树后，detached生命周期被触发。退出一个页面时，如果组件还在页面节点树中，则 detached会被触发。
+
+
+```
+// components/mypage/mypage.js
+Component({
+    // 显示多个 slot
+    options: {
+        multipleSlots: true
+    },
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+
+    },
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
+        // 自定义事件
+        onBodyTapEvent: function(event) {
+            console.log("组件内自定义事件");
+            console.log(event);
+            var index = event.target.dataset.index;
+            var detail = {
+                "index": index
+            };
+            var options = {};
+            this.triggerEvent("onBodyEvent", detail, options);
+        }
+    },
+
+    lifetimes: {
+        created: function() {
+            console.log("======>created");
+        },
+        attached: function() {
+            console.log("======>attached");
+        },
+        detached: function() {
+            console.log("======>detached");
+        }
+    },
+
+    pageLifetimes: {
+        show: function() {
+            console.log("======>show");
+        },
+
+        hide: function() {
+            console.log("======>hide");
+        },
+
+        onload: function() {
+            console.log("不触发======>onload");
+        },
+        resize: function() {
+            console.log("======>resize");
+        }
+    }
+
+})
+```

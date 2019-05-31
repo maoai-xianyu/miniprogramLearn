@@ -43,7 +43,7 @@ App({
 
     onHide: function() {
         console.log("=========onHide");
-        console.log(username);
+        //console.log(username);
     },
 
     onError: function(msg) {

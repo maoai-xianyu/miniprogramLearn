@@ -34,5 +34,35 @@ Component({
             var options = {};
             this.triggerEvent("onBodyEvent", detail, options);
         }
+    },
+
+    lifetimes: {
+        created: function() {
+            console.log("======>created");
+        },
+        attached: function() {
+            console.log("======>attached");
+        },
+        detached: function() {
+            console.log("======>detached");
+        }
+    },
+
+    pageLifetimes: {
+        show: function() {
+            console.log("======>show");
+        },
+
+        hide: function() {
+            console.log("======>hide");
+        },
+
+        onload: function() {
+            console.log("不触发======>onload");
+        },
+        resize: function() {
+            console.log("======>resize");
+        }
     }
+
 })
