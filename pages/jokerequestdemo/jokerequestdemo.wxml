@@ -2,3 +2,5 @@
 <block wx:for="{{jokes}}" wx:key="{{joke.hashId}}">
     <view class="content-group">{{item.content}}</view>
 </block>
+
+<loadingmore hasmore="{{showloading}}"></loadingmore>

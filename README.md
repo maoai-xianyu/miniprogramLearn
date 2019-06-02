@@ -3581,15 +3581,24 @@ Page({
 
 ```
 
-## 90 网路请求-笑话大全
+## 91 92 网路请求-笑话大全
 
 > folder jokerequestdemo
+
+### 下拉刷新是onPullDownRefresh
+
+### 上拉加载是onReachBottom
+
+> 上拉加载需要自定义组件显示，同时需要注意的是数据的叠加和接口请求的参数的变化
+> 模拟没有可以加载的数据，显示没有更多的数据可以加载
 
 ```
 jokerequestdemo.json
 
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "loadingmore": "/components/loadingmore/loadingmore"
+    },
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",
     "backgroundColor": "#fff"
@@ -3600,6 +3609,8 @@ jokerequestdemo.json
     <view class="content-group">{{item.content}}</view>
 </block>
 
+<loadingmore hasmore="{{showloading}}"></loadingmore>
+
 
 /* pages/jokerequestdemo/jokerequestdemo.wxss */
 
@@ -3609,31 +3620,39 @@ jokerequestdemo.json
 }
 
 // pages/jokerequestdemo/jokerequestdemo.js
+// pages/jokerequestdemo/jokerequestdemo.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        showloading: true
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.getJokes();
+        var that = this;
+        this.getJokes(1);
     },
 
-    getJokes: function() {
+    getJokes: function(page) {
         var that = this;
-        var timestamp = parseInt((new Date()).getTime() / 1000);
+        var timestamp = null;
+        if (page === 1) {
+            timestamp = parseInt((new Date()).getTime() / 1000);
+        } else {
+            timestamp = that.data.timestamp;
+        }
+
         wx.request({
             url: 'http://v.juhe.cn/joke/content/list.php', //开发者服务器接口地址",
             data: {
                 sort: "desc",
                 key: "7fa459ad3b865dedfb09dc07cb346564",
-                page: 1,
+                page: page,
                 pagesize: 10,
                 time: timestamp
 
@@ -3642,9 +3661,34 @@ Page({
             dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
             success: res => {
                 var jokes = res.data.result.data;
+                // 模拟测试数据加载
+                // if (page == 3) {
+                //     console.log("假设没有数据了");
+                //     that.setData({
+                //         showloading: false
+                //     })
+                //     return;
+                // }
+                if (!jokes) {
+                    console.log("真的没有数据了");
+                    that.setData({
+                        showloading: false
+                    })
+                    return;
+                }
+                var oldJokes = that.data.jokes;
+                var newJokes = [];
+                if (!oldJokes || page === 1) {
+                    newJokes = jokes
+                } else {
+                    // concat 数据拼接
+                    newJokes = oldJokes.concat(jokes);
+                }
                 console.log(jokes);
                 that.setData({
-                    jokes: jokes
+                    jokes: newJokes,
+                    timestamp: timestamp,
+                    page: page
                 })
 
             },
@@ -3662,7 +3706,8 @@ Page({
      */
     onPullDownRefresh: function() {
         console.log("下拉刷新");
-        this.getJokes();
+        var that = this;
+        this.getJokes(1);
     },
 
     /**
@@ -3670,7 +3715,93 @@ Page({
      */
     onReachBottom: function() {
 
+        var that = this;
+        var page = this.data.page;
+        setTimeout(() => {
+            that.getJokes(page + 1);
+        }, 2000)
+
     }
 })
 
+// 自定义组件
+
+
+<!-- components/loadingmore/loadingmore.wxml -->
+<button class="loading-btn" loading="{{hasmore}}" style="height:{{height}}}">
+    <block wx:if="{{hasmore}}">
+        <text class="loading-text">{{loadingtext}}</text>
+    </block>
+    <block wx:else>{{loadedtext}}</block>
+</button>
+
+/* components/loadingmore/loadingmore.wxss */
+
+.loading-btn {
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: #999;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.loading-btn::after {
+    border: none;
+}
+
+.loadingtext {
+    margin-left: 5px;
+}
+
+// components/loadingmore/loadingmore.js
+Component({
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+
+        loadingtext: {
+            type: String,
+            value: "正在加载数据..."
+        },
+        loadedtext: {
+            type: String,
+            value: "没有可以加载的数据"
+        },
+        hasmore: {
+            type: Boolean,
+            value: true
+        },
+        height: {
+            type: Number,
+            value: 40
+        }
+
+    },
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
+    }
+})
+
+loadmore.json
+
+{
+  "component": true,
+  "usingComponents": {}
+}
 ```
