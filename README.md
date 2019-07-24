@@ -3806,6 +3806,8 @@ loadmore.json
 }
 ```
 
+> 93~124 豆瓣小程序
+
 ## 125~126节 es6语法介绍 ecmascript
 
 ### let 关键字
@@ -3878,7 +3880,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        //this.letDemo();
         this.constDemo();
     },
 
@@ -3891,40 +3892,48 @@ Page({
         const aList = [1, 2, 3];
         aList.push(4);
         console.log(aList);
+    }
+})
+```
+
+### 函数
+```
+// pages/es6demo/es6demo.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
     },
 
-    letDemo: function() {
-        // 类型提升
-        // console.log(b);
-        // var b = "test";
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        this.functionDemo();
+    },
 
-        // 等价于
-        // var b;
-        // console.log(b);
-        // b = "test";
-
-        // var a = 10;
-        // function hello() {
-        //     // 类型提升
-        //     console.log(a);
-        //     var a = 20;
-        // }
-        // hello();
-
-        // let 关键字 小程序对 es6   ecmascript 6 的语法不是很支持  es6 转 es5
-        // 1. 不会出现变量提升的情况。
-        console.log(a); // undefine
-        let a = 10;
-        // 注意：小程序中不能真正解析ES6语法，他只是借助了第三方工具将ES6语法转成ES5语法运行的，在底层也是用var来代替let的，所以依然会发生变量提升。
-        // 2. 只在当前代码块内有效。
-        // for (var index = 0; index < 3; index++) {
-        //     console.log(index);
-        // }
-        // console.log(index); // log 3
-        for (let index = 0; index < 3; index++) {
-            console.log(index);
+    functionDemo: function() {
+        // 定义默认参数的时候，默认参数必须要在非默认参数的后面。
+        function name(name, age = 18) {
+            console.log("functionDemo -- begin");
+            console.log("name " + name + "  age " + age);
+            console.log("functionDemo -- end");
         }
-        //console.log(index); // 报错，因为没有定义index
+        name("盒子鱼");
+        name("盒子鱼", 20);
+
+        function nameObject(name, { age = 18, gender = "男", height = 180 } = {}) {
+            console.log("functionDemo -- begin");
+            console.log("name " + name + "  age " + age + " gender " + gender + " height " + height);
+            console.log("functionDemo -- end");
+        }
+
+        nameObject("盒子鱼", { age: 20 });
+        nameObject("盒子鱼", {});
+
     }
 })
 ```

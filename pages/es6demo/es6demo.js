@@ -13,8 +13,31 @@ Page({
      */
     onLoad: function(options) {
         //this.letDemo();
-        this.constDemo();
+        //this.constDemo();
+        this.functionDemo();
     },
+
+    functionDemo: function() {
+        // 定义默认参数的时候，默认参数必须要在非默认参数的后面。
+        function name(name, age = 18) {
+            console.log("functionDemo -- begin");
+            console.log("name " + name + "  age " + age);
+            console.log("functionDemo -- end");
+        }
+        name("盒子鱼");
+        name("盒子鱼", 20);
+
+        function nameObject(name, { age = 18, gender = "男", height = 180 } = {}) {
+            console.log("functionDemo -- begin");
+            console.log("name " + name + "  age " + age + " gender " + gender + " height " + height);
+            console.log("functionDemo -- end");
+        }
+
+        nameObject("盒子鱼", { age: 20 });
+        nameObject("盒子鱼", {});
+
+    },
+
 
     constDemo: function() {
         // const是用来定义常量的，常量是一旦定义好了以后，就不能够再修改了。
