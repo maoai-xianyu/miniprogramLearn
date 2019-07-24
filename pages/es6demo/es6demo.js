@@ -14,7 +14,52 @@ Page({
     onLoad: function(options) {
         //this.letDemo();
         //this.constDemo();
-        this.functionDemo();
+        //this.functionDemo();
+        this.functionArrow();
+    },
+
+    functionArrow: function() {
+        // 箭头函数
+        function request(url, success) {
+            console.log("functionArrow  url " + url);
+            if (success) {
+                success([1, 2, 3, 4]);
+            }
+        }
+
+        function requestD(url, success) {
+            console.log("functionArrow  url " + url);
+            if (success) {
+                success([1, 2, 3, 4], "abcd");
+            }
+        }
+
+        // request("https://www.baidu.com", function(res) {
+        //     console.log(res);
+        // });
+        // 箭头函数
+        request("https://www.baidu.com", res => {
+            console.log(res);
+        });
+
+        requestD("https://www.baidu.com", (res1, res2) => {
+            console.log(res1 + "  res2 " + res2);
+        });
+
+        requestD("https://www.baidu.com", (res1, res2) => {
+            console.log(res1 + "  res2 " + res2);
+        });
+
+        function requestE(url, success) {
+            console.log("functionArrow  url " + url);
+            if (success) {
+                let suc = success([1, 2, 3, 4], "abcd");
+                console.log(suc);
+            }
+        }
+
+        requestE("https://www.baidu.com", (res1, res2) => true);
+
     },
 
     functionDemo: function() {

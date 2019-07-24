@@ -3937,3 +3937,86 @@ Page({
     }
 })
 ```
+### 箭头函数
+```
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        this.functionArrow();
+    },
+
+    functionArrow: function() {
+        // 箭头函数
+        function request(url, success) {
+            console.log("functionArrow  url " + url);
+            if (success) {
+                success([1, 2, 3, 4]);
+            }
+        }
+
+        function requestD(url, success) {
+            console.log("functionArrow  url " + url);
+            if (success) {
+                success([1, 2, 3, 4], "abcd");
+            }
+        }
+
+        // request("https://www.baidu.com", function(res) {
+        //     console.log(res);
+        // });
+        // 箭头函数
+        request("https://www.baidu.com", res => {
+            console.log(res);
+        });
+
+        requestD("https://www.baidu.com", (res1, res2) => {
+            console.log(res1 + "  res2 " + res2);
+        });
+
+        requestD("https://www.baidu.com", (res1, res2) => {
+            console.log(res1 + "  res2 " + res2);
+        });
+
+        function requestE(url, success) {
+            console.log("functionArrow  url " + url);
+            if (success) {
+                let suc = success([1, 2, 3, 4], "abcd");
+                console.log(suc);
+            }
+        }
+
+        requestE("https://www.baidu.com", (res1, res2) => true);
+
+    },
+
+    functionDemo: function() {
+        // 定义默认参数的时候，默认参数必须要在非默认参数的后面。
+        function name(name, age = 18) {
+            console.log("functionDemo -- begin");
+            console.log("name " + name + "  age " + age);
+            console.log("functionDemo -- end");
+        }
+        name("盒子鱼");
+        name("盒子鱼", 20);
+
+        function nameObject(name, { age = 18, gender = "男", height = 180 } = {}) {
+            console.log("functionDemo -- begin");
+            console.log("name " + name + "  age " + age + " gender " + gender + " height " + height);
+            console.log("functionDemo -- end");
+        }
+
+        nameObject("盒子鱼", { age: 20 });
+        nameObject("盒子鱼", {});
+    }
+})
+```
