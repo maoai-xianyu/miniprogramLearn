@@ -60,6 +60,19 @@ Page({
 
         requestE("https://www.baidu.com", (res1, res2) => true);
 
+        // 没有参数
+        function requestF(url, success) {
+            console.log("functionArrow  url " + url);
+            if (success) {
+                let result = success();
+            }
+        }
+
+        requestF("盒子鱼", () => {
+            console.log("返回没有参数");
+        });
+
+
     },
 
     functionDemo: function() {

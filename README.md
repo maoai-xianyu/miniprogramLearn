@@ -3997,26 +3997,18 @@ Page({
 
         requestE("https://www.baidu.com", (res1, res2) => true);
 
-    },
-
-    functionDemo: function() {
-        // 定义默认参数的时候，默认参数必须要在非默认参数的后面。
-        function name(name, age = 18) {
-            console.log("functionDemo -- begin");
-            console.log("name " + name + "  age " + age);
-            console.log("functionDemo -- end");
-        }
-        name("盒子鱼");
-        name("盒子鱼", 20);
-
-        function nameObject(name, { age = 18, gender = "男", height = 180 } = {}) {
-            console.log("functionDemo -- begin");
-            console.log("name " + name + "  age " + age + " gender " + gender + " height " + height);
-            console.log("functionDemo -- end");
+        // 没有参数
+        function requestF(url, success) {
+            console.log("functionArrow  url " + url);
+            if (success) {
+                let result = success();
+            }
         }
 
-        nameObject("盒子鱼", { age: 20 });
-        nameObject("盒子鱼", {});
+        requestF("盒子鱼", () => {
+            console.log("返回没有参数");
+        });
+
     }
 })
 ```
