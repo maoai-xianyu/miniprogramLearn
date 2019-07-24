@@ -1,78 +1,80 @@
 {
-    "pages": [
-        "pages/jokerequestdemo/jokerequestdemo",
-        "pages/course/course",
-        "pages/weibolist/weibolist",
-        "pages/event/event",
-        "pages/flexdemo/flexdemo",
-        "pages/weibo/weibo",
-        "pages/apirequestdemo/apirequestdemo",
-        "pages/segmentdemo/segmentdemo",
-        "pages/componentsdemo/componentsdemo",
-        "pages/inputdemo/inputdemo",
-        "pages/progressdemo/progressdemo",
-        "pages/swiperdemo/swiperdemo",
-        "pages/textdemo/textdemo",
-        "pages/checkboxdemo/checkboxdemo",
-        "pages/buttonformdemo/buttonformdemo",
-        "pages/buttondemo/buttondemo",
-        "pages/richtextdemo/richtextdemo",
-        "pages/zhifubao/zhifubao",
-        "pages/icondemo/icondemo",
-        "pages/iconsearchdemo/iconsearchdemo",
-        "pages/movablechatdemo/movablechatdemo",
-        "pages/movableviewdemo/movableviewdemo",
-        "pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo",
-        "pages/scrollViewDemo/scrollViewDemo",
-        "pages/viewdemo/viewdemo",
-        "pages/wxsdemo/wxsdemo",
-        "pages/tpl/wechat/wechat",
-        "pages/logs/logs",
-        "pages/index/index",
-        "pages/param/param",
-        "pages/tpl/qq/qq",
-        "pages/css/css"
+  "pages": [
+    "pages/es6demo/es6demo",
+    "pages/jokerequestdemo/jokerequestdemo",
+    "pages/course/course",
+    "pages/weibolist/weibolist",
+    "pages/event/event",
+    "pages/flexdemo/flexdemo",
+    "pages/weibo/weibo",
+    "pages/apirequestdemo/apirequestdemo",
+    "pages/segmentdemo/segmentdemo",
+    "pages/componentsdemo/componentsdemo",
+    "pages/inputdemo/inputdemo",
+    "pages/progressdemo/progressdemo",
+    "pages/swiperdemo/swiperdemo",
+    "pages/textdemo/textdemo",
+    "pages/checkboxdemo/checkboxdemo",
+    "pages/buttonformdemo/buttonformdemo",
+    "pages/buttondemo/buttondemo",
+    "pages/richtextdemo/richtextdemo",
+    "pages/zhifubao/zhifubao",
+    "pages/icondemo/icondemo",
+    "pages/iconsearchdemo/iconsearchdemo",
+    "pages/movablechatdemo/movablechatdemo",
+    "pages/movableviewdemo/movableviewdemo",
+    "pages/scrollviewluckymoneydemo/scrollviewluckymoneydemo",
+    "pages/scrollViewDemo/scrollViewDemo",
+    "pages/viewdemo/viewdemo",
+    "pages/wxsdemo/wxsdemo",
+    "pages/tpl/wechat/wechat",
+    "pages/logs/logs",
+    "pages/index/index",
+    "pages/param/param",
+    "pages/tpl/qq/qq",
+    "pages/css/css"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundColor": "pink",
+    "enablePullDownRefresh": false
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/es6demo/es6demo",
+        "text": "ES6",
+        "iconPath": "images/tabbars/tab_home.png",
+        "selectedIconPath": "images/tabbars/tab_home_selected.png"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "text": "课程",
+        "iconPath": "images/tabbars/tab_course.png",
+        "selectedIconPath": "images/tabbars/tab_course_selected.png"
+      },
+      {
+        "pagePath": "pages/weibolist/weibolist",
+        "text": "微博",
+        "iconPath": "images/tabbars/tab_weibo.png",
+        "selectedIconPath": "images/tabbars/tab_weibo_selected.png"
+      },
+      {
+        "pagePath": "pages/event/event",
+        "text": "日志",
+        "iconPath": "images/tabbars/tab_my.png",
+        "selectedIconPath": "images/tabbars/tab_my_selected.png"
+      }
     ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#ccc",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black",
-        "navigationStyle": "default",
-        "backgroundColor": "pink",
-        "enablePullDownRefresh": false
-    },
-    "sitemapLocation": "sitemap.json",
-    "tabBar": {
-        "list": [{
-                "pagePath": "pages/jokerequestdemo/jokerequestdemo",
-                "text": "网络请求",
-                "iconPath": "images/tabbars/tab_home.png",
-                "selectedIconPath": "images/tabbars/tab_home_selected.png"
-            },
-            {
-                "pagePath": "pages/course/course",
-                "text": "课程",
-                "iconPath": "images/tabbars/tab_course.png",
-                "selectedIconPath": "images/tabbars/tab_course_selected.png"
-            },
-            {
-                "pagePath": "pages/weibolist/weibolist",
-                "text": "微博",
-                "iconPath": "images/tabbars/tab_weibo.png",
-                "selectedIconPath": "images/tabbars/tab_weibo_selected.png"
-            },
-            {
-                "pagePath": "pages/event/event",
-                "text": "日志",
-                "iconPath": "images/tabbars/tab_my.png",
-                "selectedIconPath": "images/tabbars/tab_my_selected.png"
-            }
-        ],
-        "color": "#8a8a8a",
-        "selectedColor": "#1AAD16",
-        "backgroundColor": "#fff",
-        "borderStyle": "black"
-    },
-    "debug": false
+    "color": "#8a8a8a",
+    "selectedColor": "#1AAD16",
+    "backgroundColor": "#fff",
+    "borderStyle": "black"
+  },
+  "debug": false
 }
