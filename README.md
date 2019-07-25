@@ -3808,7 +3808,7 @@ loadmore.json
 
 > 93~124 豆瓣小程序
 
-## 125~126节 es6语法介绍 ecmascript
+## 125~132节 es6语法介绍 ecmascript
 
 ### let 关键字
 ```
@@ -4054,4 +4054,86 @@ Page({
         });
     }
 })
+```
+### class对象的定义
+
+```
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        this.classDemo();
+    },
+
+    classDemo: function() {
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sayHello() {
+                console.log("this  " + this + "name " + this.name + "  age  " + this.age);
+            }
+        }
+
+        var person = new Person("盒子鱼", 13);
+        person.sayHello();
+
+        class Util {
+            static formatDate(time) {
+                console.log("时间是  " + time);
+            }
+        }
+
+        Util.formatDate("2019-7-25");
+    },
+})
+```
+
+### export 导出  import 导入
+```
+util.js
+
+function sayHello() {
+    console.log("你好 盒子鱼");
+}
+
+export { sayHello }
+
+
+// pages/es6demo/es6demo.js
+import { sayHello } from "util.js"
+import { formatTime } from "../../utils/util.js"
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        //this.letDemo();
+        //this.constDemo();
+        //this.functionDemo();
+        //this.functionArrow();
+        //this.promiseDemo();
+        //this.classDemo();
+        sayHello();
+        let time = formatTime(new Date());
+        console.log(time);
+    },
 ```

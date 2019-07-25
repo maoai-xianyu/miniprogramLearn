@@ -1,4 +1,6 @@
 // pages/es6demo/es6demo.js
+import { sayHello } from "util.js"
+import { formatTime } from "../../utils/util.js"
 Page({
 
     /**
@@ -16,7 +18,34 @@ Page({
         //this.constDemo();
         //this.functionDemo();
         //this.functionArrow();
-        this.promiseDemo();
+        //this.promiseDemo();
+        //this.classDemo();
+        sayHello();
+        let time = formatTime(new Date());
+        console.log(time);
+    },
+
+    classDemo: function() {
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sayHello() {
+                console.log("this  " + this + "name " + this.name + "  age  " + this.age);
+            }
+        }
+
+        var person = new Person("盒子鱼", 13);
+        person.sayHello();
+
+        class Util {
+            static formatDate(time) {
+                console.log("时间是  " + time);
+            }
+        }
+
+        Util.formatDate("2019-7-25");
     },
 
     promiseDemo: function() {
