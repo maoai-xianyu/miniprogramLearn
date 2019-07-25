@@ -4012,3 +4012,46 @@ Page({
     }
 })
 ```
+
+### Promise风格调用
+
+```
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        this.promiseDemo();
+    },
+
+    promiseDemo: function() {
+        let p = new Promise((resolve, reject) => {
+            // 成功
+            // setTimeout(() => {
+            //         resolve([1, 2, 3, 4]);
+            //     },
+            //     1000);
+
+            // 失败
+            setTimeout(() => {
+                reject("fail");
+            }, 1000);
+        });
+        p.then(res => {
+            console.log(res);
+            console.log("请求成功了");
+        }).catch(error => {
+            console.log(error);
+            console.log("请求失败了");
+        });
+    }
+})
+```
